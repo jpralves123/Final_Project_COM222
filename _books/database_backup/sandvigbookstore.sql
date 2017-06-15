@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2017 at 08:58 PM
+-- Generation Time: Jun 15, 2017 at 09:09 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -224,7 +224,8 @@ INSERT INTO `bookdescriptions` (`ISBN`, `title`, `description`, `price`, `publis
 CREATE TABLE `user` (
   `login` varchar(15) NOT NULL,
   `senha` varchar(15) NOT NULL,
-  `nome` varchar(30) NOT NULL
+  `nome` varchar(30) NOT NULL,
+  `admin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
