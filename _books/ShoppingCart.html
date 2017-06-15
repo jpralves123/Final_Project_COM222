@@ -1,0 +1,124 @@
+<!DOCTYPE hml>
+<html lang="en">
+  <!-- ************************************************ -->
+  <head>
+
+    <title>Online Books</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar ">
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html"><img class="logo" src="img/logo.png"></a>
+        </div>
+
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" id="search"  placeholder="Search">
+          </div>
+          <button type="search" class="btn btn-primary ">Searcsh</button>
+        </form>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="sign_up_page.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="login_page.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+
+      </div>
+    </nav>
+
+  </head>
+
+  <!-- ************************************************ -->
+
+  <body>
+
+    <div class="container">
+
+    	<table id="cart" class="table table-hover table-condensed">
+
+                <thead>
+    						<tr>
+    							<th style="width:50%">Product</th>
+    							<th style="width:10%">Price</th>
+    							<th style="width:8%">Quantity</th>
+    							<th style="width:22%" class="text-center">Subtotal</th>
+    							<th style="width:10%"></th>
+    						</tr>
+    					</thead>
+
+    					<tbody>
+    						<tr>
+    							<td data-th="Product">
+    								<div class="row">
+    									<div class="col-sm-2 hidden-xs"><img src="007184158X.01.MZZZZZZZ.jpg" alt="..." class="img-responsive"/></div>
+    									<div class="col-sm-10">
+    										<h4 class="nomargin"><a>JavaScript: 20 Lessons to Successful Web Development</a></h4>
+    									</div>
+    								</div>
+    							</td>
+    							<td data-th="Price">$1.99</td>
+    							<td data-th="Quantity">
+    								<input type="number" class="form-control text-center" value="1">
+    							</td>
+    							<td data-th="Subtotal" class="text-center">1.99</td>
+    							<td class="actions" data-th="">
+    								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+    								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+    							</td>
+    						</tr>
+    					</tbody>
+
+    					<tfoot>
+    						<tr class="visible-xs">
+    							<td class="text-center"><strong>Total 1.99</strong></td>
+    						</tr>
+    						<tr>
+    							<td><a href="index.html" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+    							<td colspan="2" class="hidden-xs"></td>
+    							<td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
+    							<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+    						</tr>
+    					</tfoot>
+
+    				</table>
+    </div>
+
+
+  </body>
+
+  <!--FOOTER-->
+  <footer class="navbar-fixed-bottom container-fluid text-center bg-lightgray">
+
+    <div class="copyrights text-center" style="margin-top:25px;">
+        <p>Web Books © 2017, All Rights Reserved
+            <br>
+            <span>Programação Web COM222 - Universidade Federal de Itajubá</span>
+            <br>
+            <a>About</a>
+            <br><br>
+        </p>
+        <p>
+          <a class="img-responsive center-block" href="index.html"><img class="logo" src="img/logo.png"></a>
+          <br>
+          <span>João Pedro Rufino Alves - 30239 | Mateus Romera Villar - 31451</span>
+        </p>
+    </div>
+
+  </footer>
+  <!-- ************************************************ -->
+</html>
