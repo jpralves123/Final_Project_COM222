@@ -79,19 +79,26 @@ if($total > 0) {
 
       <!--DROPDOWN MENU -->
       <div class="dropdown col-md-12">
-        <button class="btn btn-primary dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Browse
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-            <?php
-              while($row = mysqli_fetch_assoc($select)){
-                    echo "<li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"#\">".$row['CategoryName']."</a></li>";
-              }
-            ?>
-          </ul>
         <a href="https://github.com/jpralves123/Final_Project_COM222/tree/master/_books" class="btn btn-primary">GitHub Source Code</a>
         <a href="BookStoreManagement.php" class="btn btn-danger">Book Store Management</a>
         <a href="#" class="btn btn-primary">About Us</a>
       </div>
+
+      <!--SIDEMENU-->
+        <div class="col-md-2 btn-group-vertical" id="sidemenu">
+
+          <h3> Browse</h3>
+
+          <?php
+            while($row = mysqli_fetch_assoc($select)){
+                  echo "<button type=\"button\" class=\"text-left btn btn-primary \">".$row['CategoryName']."</button></a></li>";
+            }
+          ?>
+
+        </div>
+
+
+
 
       <?php
       // fim do if
@@ -101,16 +108,18 @@ if($total > 0) {
       <br>
       <!--SLIDER RANDON BOOKS-->
 
-      <div class="container-fluid col-md-12">
+      <div class="container-fluid col-md-10">
         <h3>Sugestions</h3>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
+          <br>
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
 
             <div class="item active">
-              <div class="col-md-10">
-                <div class="panel panel-primary">
+              <div class="col-md-2">
+              </div>
+              <div class="col-md-8">
+                <div class="panel">
                   <div class="panel-body">
 
                   <?php
@@ -135,13 +144,12 @@ if($total > 0) {
                                   </a>
                                 </h4>
                               </div>
-                        <img class=\"col-md-2 img-responsive center-block\" src=\"007184158X.01.MZZZZZZZ.jpg\">
-                        <br>
+                              <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$row['ISBN'].".01.THUMBZZZ.jpg\">
 
-                        <p class=\"col-md-10 text-justify\">
-                          Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
+                        <div class=\"col-md-10 text-justify\">
+                          ".$row['description']."
                           <a>Read More</a>
-                        </p>";
+                        </div>";
 
                     ?>
                   </div>
@@ -150,8 +158,10 @@ if($total > 0) {
             </div>
 
             <div class="item">
-              <div class="col-md-10">
-                <div class="panel panel-primary">
+              <div class="col-md-2">
+              </div>
+              <div class="col-md-8">
+                <div class="panel">
                   <div class="panel-body">
 
                   <?php
@@ -177,13 +187,12 @@ if($total > 0) {
                                   </a>
                                 </h4>
                               </div>
-                        <img class=\"col-md-2 img-responsive center-block\" src=\"007184158X.01.MZZZZZZZ.jpg\">
-                        <br>
+                              <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$row['ISBN'].".01.THUMBZZZ.jpg\">
 
-                        <p class=\"col-md-10 text-justify\">
-                          Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
-                          <a>Read More</a>
-                        </p>";
+                              <div class=\"col-md-10 text-justify\">
+                                ".$row['description']."
+                                <a>Read More</a>
+                              </div>";
 
                     ?>
                   </div>
@@ -192,8 +201,10 @@ if($total > 0) {
             </div>
 
             <div class="item">
-              <div class="col-md-10">
-                <div class="panel panel-primary">
+              <div class="col-md-2">
+              </div>
+              <div class="col-md-8">
+                <div class="panel">
                   <div class="panel-body">
 
                   <?php
@@ -219,13 +230,12 @@ if($total > 0) {
                                   </a>
                                 </h4>
                               </div>
-                        <img class=\"col-md-2 img-responsive center-block\" src=\"007184158X.01.MZZZZZZZ.jpg\">
-                        <br>
+                              <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$row['ISBN'].".01.THUMBZZZ.jpg\">
 
-                        <p class=\"col-md-10 text-justify\">
-                          Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
-                          <a>Read More</a>
-                        </p>";
+                              <div class=\"col-md-10 text-justify\">
+                                ".$row['description']."
+                                <a>Read More</a>
+                              </div>";
 
                     ?>
                   </div>
@@ -236,11 +246,11 @@ if($total > 0) {
           </div>
 
           <!-- Left and right controls -->
-          <a class="left carousel-control col-md-1" href="#myCarousel" data-slide="prev">
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
             <span class="sr-only">Previous</span>
           </a>
-          <a class="right carousel-control col-md-1" href="#myCarousel" data-slide="next">
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
             <span class="sr-only">Next</span>
           </a>
