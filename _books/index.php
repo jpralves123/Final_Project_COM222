@@ -23,7 +23,7 @@
     <div class="container-fluid">
 
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.html"><img class="logo" src="img/logo.png"></a>
+        <a class="navbar-brand" href="index.php"><img class="logo" src="img/logo.png"></a>
       </div>
 
       <form class="navbar-form navbar-left">
@@ -66,7 +66,7 @@
           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Web Usability</a></li>
         </ul>
         <a href="https://github.com/jpralves123/Final_Project_COM222/tree/master/_books" class="btn btn-primary">GitHub Source Code</a>
-        <a href="BookStoreManagement.html" class="btn btn-danger">Book Store Management</a>
+        <a href="BookStoreManagement.php" class="btn btn-danger">Book Store Management</a>
         <a href="#" class="btn btn-primary">About Us</a>
       </div>
 
@@ -399,7 +399,7 @@
       <br><br>
     </p>
     <p>
-      <a class="img-responsive center-block" href="index.html"><img class="logo" src="img/logo.png"></a>
+      <a class="img-responsive center-block" href="index.php"><img class="logo" src="img/logo.png"></a>
       <br>
       <span>João Pedro Rufino Alves - 30239 | Mateus Romera Villar - 31451</span>
     </p>

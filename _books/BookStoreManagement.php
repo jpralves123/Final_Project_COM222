@@ -1,3 +1,23 @@
+<?php
+// conecta ao banco de dados
+$connect = mysqli_connect('localhost','root','');
+
+// seleciona a base de dados em que vamos trabalhar
+$db = mysqli_select_db($connect, 'sandvigbookstore');
+
+// cria a instrução SQL que vai selecionar os dados
+$query_select = "SELECT * FROM bookdescriptions";
+
+// executa a query
+$select = mysqli_query($connect, $query_select);
+
+// transforma os dados em um array
+$row = mysqli_fetch_assoc($select);
+
+// calcula quantos dados retornaram
+$total = mysqli_num_rows($select);
+?>
+
 <!DOCTYPE hml>
 <html lang="en">
   <!-- ************************************************ -->
@@ -22,20 +42,12 @@
       <div class="container-fluid">
 
         <div class="navbar-header">
-          <a class="navbar-brand" href="index.html"><img class="logo" src="img/logo.png"></a>
+          <a class="navbar-brand" href="index.php"><img class="logo" src="img/logo.png"></a>
         </div>
 
-        <form class="navbar-form navbar-left">
-          <div class="form-group">
-            <input type="text" class="form-control" id="search"  placeholder="Search">
-          </div>
-          <button type="search" class="btn btn-primary ">Search</button>
-        </form>
-
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="ShoppingCart.html"><span class="glyphicon glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-          <li><a href="sign_up_page.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="login_page.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+          <li><a href="login_page.html"><span class="glyphicon glyphicon-log-out"></span> Exit</a></li>
         </ul>
 
       </div>
@@ -46,6 +58,11 @@
   <!-- ************************************************ -->
 
   <body>
+
+    <?php
+    	// se o número de resultados for maior que zero, mostra os dados
+    	if($total > 0) {
+    ?>
 
     <div class="container">
     <div class="row">
@@ -69,7 +86,7 @@
                   <thead>
                     <tr>
                         <th><em class="fa fa-cog"></em></th>
-                        <th class="hidden-xs">ISBN</th>
+                        <th>ISBN</th>
                         <th>Title</th>
                         <th>Description</th>
                         <th>Price</th>
@@ -80,42 +97,43 @@
                     </tr>
                   </thead>
                   <tbody>
-                          <tr>
-                            <td align="center">
-                              <a class="btn btn-default" href="EditBook.html"><em class="fa fa-pencil"></em></a>
-                              <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
-                            </td>
-                            <td class="hidden-xs">1</td>
-                            <td>John Doe</td>
-                            <td>johndoe@example.com</td>
-                            <td>johndoe@example.com</td>
-                          </tr>
-                        </tbody>
+
+                    <?php
+                    while($row = mysqli_fetch_assoc($select)){
+                          echo "<tr>
+                            <td align=\"center\">
+                              <a class=\"btn btn-default\" href=\"EditBook.html\"><em class=\"fa fa-pencil\"></em></a>
+                              <a class=\"btn btn-danger\"><em class=\"fa fa-trash\"></em></a>
+                            </td>";
+                          echo "<td>".$row['ISBN']."</td>";
+                          echo "<td>".$row['title']."</td>";
+                          echo "<td>".$row['description']."</td>";
+                          echo "<td>".$row['price']."</td>";
+                          echo "<td>".$row['publisher']."</td>";
+                          echo "<td>".$row['pubdate']."</td>";
+                          echo "<td>".$row['edition']."</td>";
+                          echo "<td>".$row['pages']."</td>";
+                          echo "</tr>";
+                    }
+                    ?>
+
+                  </tbody>
+
                 </table>
 
               </div>
-              <div class="panel-footer">
-                <div class="row">
-                  <div class="col col-xs-4">Page 1 of 5
-                  </div>
-                  <div class="col col-xs-8">
-                    <ul class="pagination hidden-xs pull-right">
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                    </ul>
-                    <ul class="pagination visible-xs pull-right">
-                        <li><a href="#">«</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+
             </div>
 
-</div></div>
+          </div>
+
+        </div>
+
+
+  <?php
+  // fim do if
+  }
+  ?>
 
   </body>
 
@@ -131,7 +149,7 @@
             <br><br>
         </p>
         <p>
-          <a class="img-responsive center-block" href="index.html"><img class="logo" src="img/logo.png"></a>
+          <a class="img-responsive center-block" href="index.php"><img class="logo" src="img/logo.png"></a>
           <br>
           <span>João Pedro Rufino Alves - 30239 | Mateus Romera Villar - 31451</span>
         </p>
