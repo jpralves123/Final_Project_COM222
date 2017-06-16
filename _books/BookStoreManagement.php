@@ -22,9 +22,10 @@ $total = mysqli_num_rows($select);
 
     <title>WB - Store Management</title>
 
-    <?php
-    include_once('header.php');
-    ?>
+    <!-- ************************************************ -->
+    <!--HEADER-->
+    <?php  include 'header_Admin.php'; ?>
+    <!-- ************************************************ -->
 
   </head>
 
@@ -46,12 +47,15 @@ $total = mysqli_num_rows($select);
             <div class="panel panel-default panel-table">
               <div class="panel-heading">
                 <div class="row">
+
                   <div class="col col-xs-6">
                     <h3 class="panel-title">Book List</h3>
                   </div>
+
                   <div class="col col-xs-6 text-right">
-                    <a href="NewBook.html" class="btn btn-primary btn-create">New Book</a>
+                    <a href="AddNewBook.php" class="btn btn-primary btn-create">New Book</a>
                   </div>
+
                 </div>
               </div>
               <div class="panel-body">
@@ -76,7 +80,7 @@ $total = mysqli_num_rows($select);
                           echo "<tr>
                             <td align=\"center\">
                               <a class=\"btn btn-default\" href=\"EditBook.html\"><em class=\"fa fa-pencil\"></em></a>
-                              <a class=\"btn btn-danger\"><em class=\"fa fa-trash\"></em></a>
+                              <a class=\"btn btn-danger\"><em class=\"fa fa-trash-o\"></em></a>
                             </td>";
                           echo "<td>".$row['ISBN']."</td>";
                           echo "<td>".$row['title']."</td>";
@@ -110,24 +114,10 @@ $total = mysqli_num_rows($select);
 
   </body>
 
-  <!--FOOTER-->
-  <footer class="container-fluid text-center bg-lightgray">
-
-    <div class="copyrights text-center" style="margin-top:25px;">
-        <p>Web Books © 2017, All Rights Reserved
-            <br>
-            <span>Programação Web COM222 - Universidade Federal de Itajubá</span>
-            <br>
-            <a>About</a>
-            <br><br>
-        </p>
-        <p>
-          <a class="img-responsive center-block" href="index.php"><img class="logo" src="img/logo.png"></a>
-          <br>
-          <span>João Pedro Rufino Alves - 30239 | Mateus Romera Villar - 31451</span>
-        </p>
-    </div>
-
-  </footer>
   <!-- ************************************************ -->
+  <!--FOOTER-->
+  <br>
+  <?php  include 'footer.html'; ?>
+  <!-- ************************************************ -->
+
 </html>

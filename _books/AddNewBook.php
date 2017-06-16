@@ -4,43 +4,13 @@
 <head>
   <title>Online Books - New Book</title>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="style.css">
-
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+  <!-- ************************************************ -->
+  <!--HEADER-->
+  <?php  include 'header_Admin.php'; ?>
+  <!-- ************************************************ -->
 </head>
 
 <body>
-
-  <nav class="navbar ">
-    <div class="container-fluid">
-
-      <div class="navbar-header">
-        <a class="navbar-brand" href="index.php"><img class="logo" src="img/logo.png"></a>
-      </div>
-
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" id="search"  placeholder="Search">
-        </div>
-        <button type="search" class="btn btn-primary ">Search</button>
-      </form>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-        <li><a href="login_page.html"><span class="glyphicon glyphicon-log-out"></span> Exit</a></li>
-      </ul>
-
-    </div>
-  </nav>
 
   <div id="main" class="container-fluid">
 
@@ -98,7 +68,7 @@
       </div>
 
       <input class="btn btn-primary" type="submit" value="Save Book" id="save" name="save">
-      <a href="BookStoreManagement.html" class="btn btn-default">Cancel</a>
+      <a href="BookStoreManagement.php" class="btn btn-default">Cancel</a>
 
     </form>
   </div>
@@ -106,5 +76,11 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 </body>
+
+<!-- ************************************************ -->
+<!--FOOTER-->
+<br>
+<?php  include 'footer.html'; ?>
+<!-- ************************************************ -->
 
 </html>

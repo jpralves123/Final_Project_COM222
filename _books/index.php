@@ -30,7 +30,6 @@ include_once('DatabaseConnection.php');
     <div class="container-fluid col-md-10">
       <h3>Sugestions</h3>
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <br>
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
 
