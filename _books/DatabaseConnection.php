@@ -1,22 +1,9 @@
 <?php
 
-function OpenCon()
- {
- $dbhost = "localhost";
- $dbuser = "root";
- $dbpass = "";
- $db = "";
+// conecta ao banco de dados
+$connect = mysqli_connect('localhost','root','');
 
-
- $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
-
-
- return $conn;
- }
-
-function CloseCon($conn)
- {
- $conn -> close();
- }
+// seleciona a base de dados em que vamos trabalhar
+$db = mysqli_select_db($connect, 'sandvigbookstore');
 
 ?>

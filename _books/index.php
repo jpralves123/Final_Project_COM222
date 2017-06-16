@@ -1,3 +1,28 @@
+<!--Lista as categorias de livros-->
+<?php
+// conecta ao banco de dados
+$connect = mysqli_connect('localhost','root','');
+
+// seleciona a base de dados em que vamos trabalhar
+$db = mysqli_select_db($connect, 'sandvigbookstore');
+
+// cria a instrução SQL que vai selecionar os dados
+$query_select = "SELECT * FROM bookcategories";
+
+// executa a query
+$select = mysqli_query($connect, $query_select);
+
+// transforma os dados em um array
+$row = mysqli_fetch_assoc($select);
+
+// calcula quantos dados retornaram
+$total = mysqli_num_rows($select);
+
+// se o número de resultados for maior que zero, mostra os dados
+if($total > 0) {
+
+?>
+
 
 <!DOCTYPE hml>
 <html lang="en">
@@ -56,19 +81,22 @@
       <div class="dropdown col-md-12">
         <button class="btn btn-primary dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Browse
           <span class="caret"></span></button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">ASP.NET</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">MySQL</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">PHP</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Regular Expressions</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">SQL</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Web Usability</a></li>
-        </ul>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+            <?php
+              while($row = mysqli_fetch_assoc($select)){
+                    echo "<li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"#\">".$row['CategoryName']."</a></li>";
+              }
+            ?>
+          </ul>
         <a href="https://github.com/jpralves123/Final_Project_COM222/tree/master/_books" class="btn btn-primary">GitHub Source Code</a>
         <a href="BookStoreManagement.php" class="btn btn-danger">Book Store Management</a>
         <a href="#" class="btn btn-primary">About Us</a>
       </div>
+
+      <?php
+      // fim do if
+      }
+      ?>
 
       <br>
       <!--SLIDER RANDON BOOKS-->
