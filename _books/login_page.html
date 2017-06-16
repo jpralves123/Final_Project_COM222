@@ -29,12 +29,17 @@
 
           <div class="form-group">
             <a class="navbar-brand" href="index.php"><img class="logo" src="img/logo.png"></a>
-            <form class="login-form">
-              <input type="text" class="form-control" placeholder="username"/>
-              <input type="password" class="form-control" placeholder="password"/>
+
+           <form class="login-form" method="POST" action="ValidateLogin.php">
+
+              <input type="text" class="form-control" placeholder="username" name="login" id="login"/>
+              <input type="password" class="form-control" placeholder="password" name="password" id="password"/>
+
+              <br>
+              <input class="btn btn-primary" type="submit" value="Login" id="enter" name="enter">
+
             </form>
 
-            <button type="search" class="btn btn-primary ">Login</button>
             <p class="message"><br>Not registered? <a href="sign_up_page.html">Create an account</a></p>
             <a href="index.php"><span class="glyphicon glyphicon glyphicon glyphicon-circle-arrow-left"></span> Back</a>
 

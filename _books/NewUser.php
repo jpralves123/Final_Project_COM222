@@ -1,7 +1,7 @@
 <?php
 
 $login = $_POST['login'];
-$senha = MD5($_POST['password']);
+$senha = $_POST['password'];
 $email_address = $_POST['email_address'];
 
 $connect = mysqli_connect('localhost','root','');
