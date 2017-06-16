@@ -1,7 +1,7 @@
 <!-- ************************************************ -->
 <?php
 // conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
-include_once('DatabaseConnection.php');
+include_once('./DatabaseConnection.php');
 
 // cria a instrução SQL que vai selecionar os dados
 $query_select = "SELECT * FROM bookcategories";
@@ -52,8 +52,8 @@ if($total > 0) {
 
       <ul class="nav navbar-nav navbar-right">
         <li><a href="AboutUs.html"><span class="fa fa-book fa-lg"></span> About Us</a></li>
-        <li><a href="ShoppingCart.html"><span class="glyphicon glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
-        <li><a href="Exit.php"><span class="glyphicon glyphicon-log-out"></span> Exit</a></li>
+        <li><a href="sign_up_page.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="login_page.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
 
     </div>

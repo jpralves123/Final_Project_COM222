@@ -12,13 +12,20 @@
 
       $select = mysqli_query($connect, $query_select) or die("erro ao selecionar");
 
-      $rows = mysqli_num_rows($select);
-      echo"<script language='javascript' type='text/javascript'>alert('".$rows."');window.location.href='login_page.html';</script>";
+      $register = mysqli_num_rows($select);
 
+        if ($register > 0){
 
-        if ($rows > 0){
-          setcookie("login",$login);
+          // Criar a sessao. Login e senha conferem
+          $login = $register["login"];
+          $admin = $register["admin"];
+
+          session_start();
+
+          $_SESSION["login"] = $login;
+          $_SESSION["admin"] = $admin;
           header("Location:index.php");
+
         }else{
           echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login_page.html';</script>";
           die();

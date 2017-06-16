@@ -79,7 +79,7 @@ $total = mysqli_num_rows($select);
                     while($row = mysqli_fetch_assoc($select)){
                           echo "<tr>
                             <td align=\"center\">
-                              <a class=\"btn btn-default\" href=\"EditBook.html\"><em class=\"fa fa-pencil\"></em></a>
+                              <a class=\"btn btn-default\" href=\"view/EditBook.html\"><em class=\"fa fa-pencil\"></em></a>
                               <a class=\"btn btn-danger\"><em class=\"fa fa-trash-o\"></em></a>
                             </td>";
                           echo "<td>".$row['ISBN']."</td>";
