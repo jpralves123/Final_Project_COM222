@@ -1,4 +1,4 @@
-<!--Lista as categorias de livros-->
+<!--PÁGINA PRINCIPAL-->
 <?php
 // conecta ao banco de dados
 $connect = mysqli_connect('localhost','root','');
