@@ -109,216 +109,130 @@ if($total > 0) {
           <div class="carousel-inner">
 
             <div class="item active">
-
-              <div class="col-md-3">
+              <div class="col-md-10">
                 <div class="panel panel-primary">
                   <div class="panel-body">
 
-                    <h4 class="text-center">
-                            <a>
-                              JavaScript: 20 Lessons to Successful Web Development
-                            </a>
-                          </h4>
+                  <?php
+                        // cria a instrução SQL que vai selecionar os dados
+                        $query_select = "SELECT * FROM bookdescriptions ORDER BY RAND() LIMIT 76";
 
-                    <img class="img-responsive center-block" src="007184158X.01.MZZZZZZZ.jpg">
-                    <br>
+                        // executa a query
+                        $select = mysqli_query($connect, $query_select);
 
-                    <p class="text-justify">
-                      Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
-                      <a>Read More</a>
-                    </p>
+                        // transforma os dados em um array
+                        $row = mysqli_fetch_assoc($select);
 
+                        // calcula quantos dados retornaram
+                        $total = mysqli_num_rows($select);
+
+                        $row = mysqli_fetch_assoc($select);
+
+                        echo "<div class=\"panel-heading\">
+                                <h4 class=\"text-left\">
+                                  <a>
+                                    ".$row['title']."
+                                  </a>
+                                </h4>
+                              </div>
+                        <img class=\"col-md-2 img-responsive center-block\" src=\"007184158X.01.MZZZZZZZ.jpg\">
+                        <br>
+
+                        <p class=\"col-md-10 text-justify\">
+                          Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
+                          <a>Read More</a>
+                        </p>";
+
+                    ?>
                   </div>
                 </div>
               </div>
-
-              <div class="col-md-3">
-                <div class="panel panel-primary">
-                  <div class="panel-body">
-
-                    <h4 class="text-center">
-                            <a>
-                              JavaScript: 20 Lessons to Successful Web Development
-                            </a>
-                          </h4>
-
-                    <img class="img-responsive center-block" src="007184158X.01.MZZZZZZZ.jpg">
-                    <br>
-
-                    <p class="text-justify">
-                      Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
-                      <a>Read More</a>
-                    </p>
-
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-3">
-                <div class="panel panel-primary">
-                  <div class="panel-body">
-
-                    <h4 class="text-center">
-                            <a>
-                              JavaScript: 20 Lessons to Successful Web Development
-                            </a>
-                          </h4>
-
-                    <img class="img-responsive center-block" src="007184158X.01.MZZZZZZZ.jpg">
-                    <br>
-
-                    <p class="text-justify">
-                      Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
-                      <a>Read More</a>
-                    </p>
-
-                  </div>
-                </div>
-              </div>
-
             </div>
-
 
             <div class="item">
-              <!--<img src="chicago.jpg" alt="Chicago" style="width:100%;">-->
-
-              <div class="col-md-3">
+              <div class="col-md-10">
                 <div class="panel panel-primary">
                   <div class="panel-body">
 
-                    <h4 class="text-center">
-                          <a>
-                            JavaScript: 20 Lessons to Successful Web Development
-                          </a>
-                        </h4>
+                  <?php
 
-                    <img class="img-responsive center-block" src="007184158X.01.MZZZZZZZ.jpg">
-                    <br>
+                        // cria a instrução SQL que vai selecionar os dados
+                        $query_select = "SELECT * FROM bookdescriptions ORDER BY RAND() LIMIT 76";
 
-                    <p class="text-justify">
-                      Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
-                      <a>Read More</a>
-                    </p>
+                        // executa a query
+                        $select = mysqli_query($connect, $query_select);
 
+                        // transforma os dados em um array
+                        $row = mysqli_fetch_assoc($select);
+
+                        // calcula quantos dados retornaram
+                        $total = mysqli_num_rows($select);
+
+                        $row = mysqli_fetch_assoc($select);
+
+                        echo "<div class=\"panel-heading\">
+                                <h4 class=\"text-left\">
+                                  <a>
+                                    ".$row['title']."
+                                  </a>
+                                </h4>
+                              </div>
+                        <img class=\"col-md-2 img-responsive center-block\" src=\"007184158X.01.MZZZZZZZ.jpg\">
+                        <br>
+
+                        <p class=\"col-md-10 text-justify\">
+                          Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
+                          <a>Read More</a>
+                        </p>";
+
+                    ?>
                   </div>
                 </div>
               </div>
-
-              <div class="col-md-3">
-                <div class="panel panel-primary">
-                  <div class="panel-body">
-
-                    <h4 class="text-center">
-                          <a>
-                            JavaScript: 20 Lessons to Successful Web Development
-                          </a>
-                        </h4>
-
-                    <img class="img-responsive center-block" src="007184158X.01.MZZZZZZZ.jpg">
-                    <br>
-
-                    <p class="text-justify">
-                      Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
-                      <a>Read More</a>
-                    </p>
-
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-3">
-                <div class="panel panel-primary">
-                  <div class="panel-body">
-
-                    <h4 class="text-center">
-                          <a>
-                            JavaScript: 20 Lessons to Successful Web Development
-                          </a>
-                        </h4>
-
-                    <img class="img-responsive center-block" src="007184158X.01.MZZZZZZZ.jpg">
-                    <br>
-
-                    <p class="text-justify">
-                      Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
-                      <a>Read More</a>
-                    </p>
-
-                  </div>
-                </div>
-              </div>
-
             </div>
 
-            <div class="item text-center">
-              <!--<img src="ny.jpg" alt="New york" style="width:100%;">-->
-              <div class="col-md-3">
+            <div class="item">
+              <div class="col-md-10">
                 <div class="panel panel-primary">
                   <div class="panel-body">
 
-                    <h4 class="text-center">
-                          <a>
-                            JavaScript: 20 Lessons to Successful Web Development
-                          </a>
-                        </h4>
+                  <?php
 
-                    <img class="img-responsive center-block" src="007184158X.01.MZZZZZZZ.jpg">
-                    <br>
+                        // cria a instrução SQL que vai selecionar os dados
+                        $query_select = "SELECT * FROM bookdescriptions ORDER BY RAND() LIMIT 76";
 
-                    <p class="text-justify">
-                      Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
-                      <a>Read More</a>
-                    </p>
+                        // executa a query
+                        $select = mysqli_query($connect, $query_select);
 
+                        // transforma os dados em um array
+                        $row = mysqli_fetch_assoc($select);
+
+                        // calcula quantos dados retornaram
+                        $total = mysqli_num_rows($select);
+
+                        $row = mysqli_fetch_assoc($select);
+
+                        echo "<div class=\"panel-heading\">
+                                <h4 class=\"text-left\">
+                                  <a>
+                                    ".$row['title']."
+                                  </a>
+                                </h4>
+                              </div>
+                        <img class=\"col-md-2 img-responsive center-block\" src=\"007184158X.01.MZZZZZZZ.jpg\">
+                        <br>
+
+                        <p class=\"col-md-10 text-justify\">
+                          Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
+                          <a>Read More</a>
+                        </p>";
+
+                    ?>
                   </div>
                 </div>
               </div>
-
-              <div class="col-md-3">
-                <div class="panel panel-primary">
-                  <div class="panel-body">
-
-                    <h4 class="text-center">
-                          <a>
-                            JavaScript: 20 Lessons to Successful Web Development
-                          </a>
-                        </h4>
-
-                    <img class="img-responsive center-block" src="007184158X.01.MZZZZZZZ.jpg">
-                    <br>
-
-                    <p class="text-justify">
-                      Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
-                      <a>Read More</a>
-                    </p>
-
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-3">
-                <div class="panel panel-primary">
-                  <div class="panel-body">
-
-                    <h4 class="text-center">
-                          <a>
-                            JavaScript: 20 Lessons to Successful Web Development
-                          </a>
-                        </h4>
-
-                    <img class="img-responsive center-block" src="007184158X.01.MZZZZZZZ.jpg">
-                    <br>
-
-                    <p class="text-justify">
-                      Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
-                      <a>Read More</a>
-                    </p>
-
-                  </div>
-                </div>
-              </div>
-
             </div>
+
           </div>
 
           <!-- Left and right controls -->
@@ -333,88 +247,13 @@ if($total > 0) {
         </div>
       </div>
 
-      <!--CONTENT-->
-      <!--<div class="col-md-9" id="content">
-
-            <div class="col-md-12">
-              <h3> Sugestions</h3>
-            </div>
-
-
-            <div class="col-md-12">
-
-              <div class="panel panel-primary">
-
-                <div class="panel-heading">
-                  <h4>JavaScript: 20 Lessons to Successful Web Development</h4>
-                </div>
-
-                <div class="panel-body">
-
-                  <img class=" col-md-2 img-responsive center-block" src="007184158X.01.MZZZZZZZ.jpg">
-
-                  <p class = "col-md-10 text-justify">
-                    Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
-                    ... <a href="details.html">Read More</a>.
-                  </p>
-
-                </div>
-              </div>
-
-            </div>
-
-            <div class="col-md-12">
-
-              <div class="panel panel-primary">
-
-                <div class="panel-heading">
-                  <h4>JavaScript: 20 Lessons to Successful Web Development</h4>
-                </div>
-
-                <div class="panel-body">
-
-                  <img class=" col-md-2 img-responsive center-block" src="007184158X.01.MZZZZZZZ.jpg">
-
-                  <p class = "col-md-10 text-justify">
-                    Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
-                    ... <a href="details.html">Read More</a>.
-                  </p>
-
-                </div>
-              </div>
-
-            </div>
-
-            <div class="col-md-12">
-
-              <div class="panel panel-primary">
-
-                <div class="panel-heading">
-                  <h4>JavaScript: 20 Lessons to Successful Web Development</h4>
-                </div>
-
-                <div class="panel-body">
-
-                  <img class=" col-md-2 img-responsive center-block" src="007184158X.01.MZZZZZZZ.jpg">
-
-                  <p class = "col-md-10 text-justify">
-                    Based on the author's successful online courses, this complete, integrated learning tool provides easy-to-follow lessons that feature clear explanations, sample code and exercises, and video tutorials. Each lesson is designed to take you less than
-                    ... <a href="details.html">Read More</a>.
-                  </p>
-
-                </div>
-              </div>
-
-            </div>
-
-        </div> -->
-
     </div>
 
   </div>
 
 </body>
 
+<!-- ************************************************ -->
 <!--FOOTER-->
 <footer class="container-fluid text-center bg-lightgray">
 
