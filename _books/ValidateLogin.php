@@ -3,8 +3,8 @@
   $enter = $_POST['enter'];
   $password = $_POST['password'];
 
-  $connect = mysqli_connect('localhost','root','');
-  $db = mysqli_select_db($connect, 'sandvigbookstore');
+  // conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
+  include_once('DatabaseConnection.php');
 
     if (isset($enter)) {
 

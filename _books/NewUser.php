@@ -1,11 +1,11 @@
-<?php
+﻿<?php
 
 $login = $_POST['login'];
 $senha = $_POST['password'];
 $email_address = $_POST['email_address'];
 
-$connect = mysqli_connect('localhost','root','');
-$db = mysqli_select_db($connect, 'sandvigbookstore');
+// conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
+include_once('DatabaseConnection.php');
 
 $query_select = "SELECT login FROM user WHERE login = '$login'";
 $select = mysqli_query($connect, $query_select);

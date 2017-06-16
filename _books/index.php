@@ -1,5 +1,6 @@
 ﻿<!--PÁGINA PRINCIPAL-->
 <?php
+// conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
 include_once('DatabaseConnection.php');
 
 // cria a instrução SQL que vai selecionar os dados
