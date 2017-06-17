@@ -25,7 +25,7 @@
         <div class="form-group">
           <input type="text" class="form-control" id="search" placeholder="Search">
         </div>
-        <a href="SearchBrowse.html" class="btn btn-primary">Search</a>
+        <a href="SearchBrowse.php" class="btn btn-primary">Search</a>
       </form>
 
       <ul class="nav navbar-nav navbar-right">

@@ -26,28 +26,31 @@ if($total > 0) {
 <html lang="en">
 
 <body>
-<div class="container-fluid col-md-2">
+  <div class="container-fluid col-md-2">
 
-  <div class="row">
+    <div class="row">
 
-    <!--SIDEMENU-->
-      <div class="col-md-12 btn-group-vertical" id="sidemenu">
+      <!--SIDEMENU-->
+        <div class="col-md-12 btn-group-vertical" id="sidemenu">
 
-        <h3> Browse</h3>
+          <h3> Browse</h3>
+          <?php
 
-        <?php
-          while($row = mysqli_fetch_assoc($select)){
-                echo "<button type=\"button\" class=\"text-left btn btn-primary \">".$row['CategoryName']."</button></a></li>";
-          }
-        ?>
+            while($row = mysqli_fetch_assoc($select)){
+                echo "<button type=\"button\" class=\"text-left btn btn-primary \" id=\"btSearch\" name=\"btSearch\">";
+                echo $row['CategoryName'];
+                echo "</button></a></li>";
+            }
 
-      </div>
+          ?>
 
-    <?php
-    // fim do if
-    }
-    ?>
-  </div>
+        </div>
+
+      <?php
+      // fim do if
+      }
+      ?>
+    </div>
   </div>
 </body>
 </html>

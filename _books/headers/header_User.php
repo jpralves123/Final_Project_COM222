@@ -21,11 +21,12 @@
         <a class="navbar-brand" href="index.php"><img class="logo" src="img/logo.png"></a>
       </div>
 
-      <form class="navbar-form navbar-left">
+      <form class="navbar-form navbar-left" method="POST" action="SearchBrowse.php">
         <div class="form-group">
-          <input type="text" class="form-control" id="search" placeholder="Search">
+          <input type="text" class="form-control" id="search" name="search" placeholder="Search">
         </div>
-        <a href="SearchBrowse.html" class="btn btn-primary">Search</a>
+        <input class="btn btn-primary" type="submit" value="Search" id="searchBt" name="searchBt">
+
       </form>
 
       <ul class="nav navbar-nav navbar-right">
