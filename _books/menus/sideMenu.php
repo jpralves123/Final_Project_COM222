@@ -37,9 +37,7 @@ if($total > 0) {
 
           	<?php
 		while($row = mysqli_fetch_assoc($select)){
-		?>
-			<a href="SearchBrowse.php?catID=<?php echo $row['CategoryID'] ?>&catName=<?php echo $row['CategoryName'] ?> " class="col-md-12 text-left btn btn-primary"><?php echo $row['CategoryName'] ?></a>
-	    	<?php
+			echo '<a href="SearchBrowse.php?catID=' . $row['CategoryID'] . '&catName=' . $row['CategoryName'] . '" class="col-md-12 text-left btn btn-primary">' . $row['CategoryName']  . '</a>';
                 }
            	?>
 
