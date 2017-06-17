@@ -1,4 +1,4 @@
-<!-- ************************************************ -->
+﻿<!-- ************************************************ -->
 <?php
 // Verifica se o usuário está logado
 //include_once("./validate.php");
@@ -34,15 +34,17 @@ if($total > 0) {
         <div class="col-md-12 btn-group-vertical" id="sidemenu">
 
           <h3> Browse</h3>
-          <?php
 
+	<form action="SearchBrowse.php" method="post" id="btSearch">
+	<?php
             while($row = mysqli_fetch_assoc($select)){
-                echo "<button type=\"button\" class=\"text-left btn btn-primary \" id=\"btSearch\" name=\"btSearch\">";
-                echo $row['CategoryName'];
-                echo "</button></a></li>";
+		echo "<button type=\"submit\" class=\"text-left btn btn-primary \" name=\"btSearch\" form=\"btSearch\">";
+		echo $row['CategoryName'];
+                echo "</button>";
+		echo "<br>";
             }
-
-          ?>
+        ?>
+	</form>
 
         </div>
 
