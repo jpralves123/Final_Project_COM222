@@ -2,27 +2,47 @@
 // Conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
 include_once('DatabaseConnection.php');
 
-// Coleta os dados via POST
-$searchString = $_POST["search"];
+?>
 
+<?php
 // Verifica se foi uma busca comum (barra de pesquisa) ou se o side menu foi acionado
 if (isset($_POST["search"])) {
+
+  //*********** AINDA TA COM ERRO QUANDO FAZ A BUSCA DE UMA CAIXA VAZIA
+
+  // Coleta os dados via POST
+  $searchString = $_POST["search"];
 
   // Realiza a busca com base no texto informado
           // a busca pode ser realizada por:
                       // título
                       // autor
-                      // categoria
 
   // cria a instrução SQL que vai selecionar os dados
   $query_selectT = "SELECT * FROM bookdescriptions WHERE title LIKE '%".$searchString."%'"; // Título
   $query_selectA = "SELECT * FROM bookdescriptions WHERE publisher LIKE '%".$searchString."%'"; // Autor
-  //$query_selectC = "SELECT * FROM bookdescriptions ORDER BY RAND() LIMIT 76"; // Categoria
 
   // executa a query
   $selectT = mysqli_query($connect, $query_selectT);
   $selectA = mysqli_query($connect, $query_selectA);
-  //$selectC = mysqli_query($connect, $query_selectC);
+
+}
+
+if(isset($_GET['catID']) && $_GET['catID'] !== ''){
+
+  // Coleta os dados via GET
+  $catID = $_GET['catID'];
+
+  // cria a instrução SQL que vai selecionar os dados
+  $query_selectC = "SELECT * FROM bookcategoriesbooks WHERE CategoryID LIKE '%".$catID."%'"; // Categoria X ISBN
+
+  // executa a query
+  $selectC = mysqli_query($connect, $query_selectC);
+
+  // coleta ISBNs dos livros que daquela Categoria
+  $rowC = mysqli_fetch_assoc($selectC);
+
+
 
 }
 
@@ -57,29 +77,8 @@ if (isset($_POST["search"])) {
           <div class="panel-body">
 
           <?php
-/*
-            // transforma os dados em um array
-            while($rowC = mysqli_fetch_assoc($selectC)){
+          if (isset($_POST["search"])) {
 
-              echo "<div class=\"panel\">
-                    <div class=\"panel-body\">
-                      <div class=\"panel-heading\">
-                        <h4 class=\"text-left\">
-                          <a>
-                            ".$rowC['title']."
-                          </a>
-                        </h4>
-                      </div>
-                      <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowC['ISBN'].".01.MZZZZZZZ.jpg\">
-
-                      <div class=\"col-md-10 text-justify\">
-                        ".$rowC['description']."
-                      </div>
-                    </div>
-                  <div>";
-
-            }
-*/
             while($rowA = mysqli_fetch_assoc($selectA)){
 
                 echo "<div class=\"panel\">
@@ -121,6 +120,46 @@ if (isset($_POST["search"])) {
                   <div>";
 
             }
+
+          } else {
+
+              if(isset($_GET['catID']) && $_GET['catID'] !== ''){
+
+                while($rowC = mysqli_fetch_assoc($selectC)){
+
+                  // cria a instrução SQL que vai selecionar os dados
+                  $query_selectB = "SELECT * FROM bookdescriptions WHERE ISBN LIKE '".$rowC['ISBN']."'"; // Categoria X ISBN
+
+                  // executa a query
+                  $selectB = mysqli_query($connect, $query_selectB);
+
+                  // coleta ISBNs dos livros que daquela Categoria
+                  $rowB = mysqli_fetch_assoc($selectB);
+
+                  // Imprime dados do livro
+                  echo "<div class=\"panel\">
+                        <div class=\"panel-body\">
+                          <div class=\"panel-heading\">
+                            <h4 class=\"text-left\">
+                              <a>
+                                ".$rowB['title']."
+                              </a>
+                            </h4>
+                          </div>
+                          <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowB['ISBN'].".01.MZZZZZZZ.jpg\">
+
+                          <div class=\"col-md-10 text-justify\">
+                            ".$rowB['description']."
+                          </div>
+                        </div>
+                      <div>";                  
+
+                }
+
+              } else {
+                echo "No results.";
+              }
+          }
 
           ?>
           </div>

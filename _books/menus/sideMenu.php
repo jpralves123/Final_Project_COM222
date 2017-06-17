@@ -36,8 +36,8 @@ if($total > 0) {
           <h3> Browse</h3>
 
           	<?php
-		while($row = mysqli_fetch_assoc($select)){
-			echo '<a href="SearchBrowse.php?catID=' . $row['CategoryID'] . '&catName=' . $row['CategoryName'] . '" class="col-md-12 text-left btn btn-primary">' . $row['CategoryName']  . '</a>';
+            		while($row = mysqli_fetch_assoc($select)){
+            			echo '<a href="SearchBrowse.php?catID=' . $row['CategoryID'] . '&catName=' . $row['CategoryName'] . '" class="col-md-12 text-left btn btn-primary">' . $row['CategoryName']  . '</a>';
                 }
            	?>
 
