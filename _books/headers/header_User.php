@@ -29,7 +29,7 @@
       </form>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="">Ola, <?php echo $_SESSION['login']; ?>!</a></li>
+        <li><a>Ola, <?php echo $_SESSION['login']; ?>!</a></li>
         <li><a href="AboutUs.php"><span class="fa fa-book fa-lg"></span> About Us</a></li>
         <li><a href="ShoppingCart.php"><span class="glyphicon glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
         <li><a href="Exit.php"><span class="glyphicon glyphicon-log-out"></span> Exit</a></li>
