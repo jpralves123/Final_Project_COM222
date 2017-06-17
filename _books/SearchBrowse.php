@@ -22,7 +22,7 @@ if (isset($_POST["search"])) {
   // executa a query
   $selectT = mysqli_query($connect, $query_selectT);
   $selectA = mysqli_query($connect, $query_selectA);
-//  $selectC = mysqli_query($connect, $query_selectC);
+  //$selectC = mysqli_query($connect, $query_selectC);
 
 }
 
@@ -121,6 +121,7 @@ if (isset($_POST["search"])) {
                   <div>";
 
             }
+            
           ?>
           </div>
         </div>
