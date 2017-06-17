@@ -9,7 +9,7 @@ $pubdate = $_POST['pub_date'];
 $edition = $_POST['edition'];
 $pages = $_POST['pages'];
 
-// conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
+// Conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
 include_once('DatabaseConnection.php');
 
 $query_select = "SELECT ISBN FROM bookdescriptions WHERE ISBN = '$isbn'";

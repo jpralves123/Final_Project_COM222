@@ -2,25 +2,29 @@
 <!--HEADER-->
 <?php
 
-      session_start();
+    // Inciai Sessão
+    session_start();
 
-      if (isset($_SESSION["login"]) && isset($_SESSION["admin"])) {
+    //Caso o usuário não esteja autenticado, limpa os dados e redireciona
+    if ( !isset($_SESSION['login']) and !isset($_SESSION['password']) and !isset($_SESSION['admin'])) {
 
-        $user = $_SESSION["login"];
-        $admin = $_SESSION["admin"];
+      //Destrói
+    	session_destroy();
 
-        //Exibe o painel de admin
-        if($admin == 1){
-          include 'headers/header_Admin.php';
-        } else {
-        // Exibe o painel padrão de usuário logado
-          include 'headers/header_User.php';
-        }
+      // Cabeçalho padrão para usuários não autenticados
+      include 'headers/header_Default.php';
 
+    } else {
+
+      if($_SESSION['admin'] == 1){
+        // Cabeçalho para usuários Administradores
+        include 'headers/header_Admin.php';
       } else {
-        // Exibe o painel padrão
-        include 'headers/header_Default.php';
+        // Cabeçalho para usuários comuns autenticados
+        include 'headers/header_User.php';
       }
+
+    }
 
  ?>
 <!-- ************************************************ -->

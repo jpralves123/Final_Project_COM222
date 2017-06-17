@@ -1,7 +1,7 @@
 ﻿<!--PÁGINA PRINCIPAL-->
 
 <?php
-// conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
+// Conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
 include_once('DatabaseConnection.php');
 
 ?>
@@ -18,12 +18,18 @@ include_once('DatabaseConnection.php');
     <!--HEADER-->
     <?php  include 'header.php'; ?>
     <!-- ************************************************ -->
+    <!--SIDE MENU-->
+    <?php  include 'menus/sideMenu.php'; ?>
+    <!-- ************************************************ -->
+
 
   </head>
 
 <!-- ************************************************ -->
 
   <body>
+
+
 
     <!--SLIDER RANDON BOOKS-->
 
