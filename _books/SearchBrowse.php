@@ -9,9 +9,20 @@ $searchString = $_POST["search"];
 if (isset($_POST["search"])) {
 
   // Realiza a busca com base no texto informado
-  echo"<script language='javascript' type='text/javascript'>alert('".$searchString."');</script>";
+          // a busca pode ser realizada por:
+                      // título
+                      // autor
+                      // categoria
 
+  // cria a instrução SQL que vai selecionar os dados
+  $query_selectT = "SELECT * FROM bookdescriptions WHERE title LIKE '%".$searchString."%'"; // Título
+  $query_selectA = "SELECT * FROM bookdescriptions WHERE publisher LIKE '%".$searchString."%'"; // Autor
+  //$query_selectC = "SELECT * FROM bookdescriptions ORDER BY RAND() LIMIT 76"; // Categoria
 
+  // executa a query
+  $selectT = mysqli_query($connect, $query_selectT);
+  $selectA = mysqli_query($connect, $query_selectA);
+//  $selectC = mysqli_query($connect, $query_selectC);
 
 }
 
@@ -46,34 +57,71 @@ if (isset($_POST["search"])) {
           <div class="panel-body">
 
           <?php
-                // cria a instrução SQL que vai selecionar os dados
-                $query_select = "SELECT * FROM bookdescriptions ORDER BY RAND() LIMIT 76";
+/*
+            // transforma os dados em um array
+            while($rowC = mysqli_fetch_assoc($selectC)){
 
-                // executa a query
-                $select = mysqli_query($connect, $query_select);
-
-                // transforma os dados em um array
-                $row = mysqli_fetch_assoc($select);
-
-                // calcula quantos dados retornaram
-                $total = mysqli_num_rows($select);
-
-                $row = mysqli_fetch_assoc($select);
-
-                echo "<div class=\"panel-heading\">
+              echo "<div class=\"panel\">
+                    <div class=\"panel-body\">
+                      <div class=\"panel-heading\">
                         <h4 class=\"text-left\">
                           <a>
-                            ".$row['title']."
+                            ".$rowC['title']."
                           </a>
                         </h4>
                       </div>
-                      <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$row['ISBN'].".01.MZZZZZZZ.jpg\">
+                      <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowC['ISBN'].".01.MZZZZZZZ.jpg\">
 
-                <div class=\"col-md-10 text-justify\">
-                  ".$row['description']."
-                  <a>Read More</a>
-                </div>";
-            ?>
+                      <div class=\"col-md-10 text-justify\">
+                        ".$rowC['description']."
+                      </div>
+                    </div>
+                  <div>";
+
+            }
+*/
+            while($rowA = mysqli_fetch_assoc($selectA)){
+
+                echo "<div class=\"panel\">
+                      <div class=\"panel-body\">
+                        <div class=\"panel-heading\">
+                          <h4 class=\"text-left\">
+                            <a>
+                              ".$rowA['title']."
+                            </a>
+                          </h4>
+                        </div>
+                        <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowA['ISBN'].".01.MZZZZZZZ.jpg\">
+
+                        <div class=\"col-md-10 text-justify\">
+                          ".$rowA['description']."
+                        </div>
+                      </div>
+                    <div>";
+
+            }
+
+            while($rowT = mysqli_fetch_assoc($selectT)){
+
+              echo "<div class=\"panel\">
+                    <div class=\"panel-body\">
+                      <div class=\"panel-heading\">
+                        <h4 class=\"text-left\">
+                          <a>
+                            ".$rowT['title']."
+                          </a>
+                        </h4>
+                      </div>
+                      <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowT['ISBN'].".01.MZZZZZZZ.jpg\">
+
+                      <div class=\"col-md-10 text-justify\">
+                        ".$rowT['description']."
+                      </div>
+                    </div>
+                  <div>";
+
+            }
+          ?>
           </div>
         </div>
       </div>
