@@ -35,16 +35,16 @@ if($total > 0) {
 
           <h3> Browse</h3>
 
-	<form action="SearchBrowse.php" method="post" id="btSearch">
-	<?php
-            while($row = mysqli_fetch_assoc($select)){
-		echo "<button type=\"submit\" class=\"text-left btn btn-primary \" name=\"btSearch\" form=\"btSearch\">";
-		echo $row['CategoryName'];
-                echo "</button>";
-		echo "<br>";
-            }
-        ?>
-	</form>
+        	<form  action="SearchBrowse.php" method="post" id="btSearch">
+          	<?php
+                      while($row = mysqli_fetch_assoc($select)){
+                      		echo "<button type=\"submit\" class=\"col-md-12 text-left btn btn-primary \" name=\"btSearch\" form=\"btSearch\">";
+                      		echo $row['CategoryName'];
+                                      echo "</button>";
+                      		echo "<br>";
+                      }
+            ?>
+        	</form>
 
         </div>
 
