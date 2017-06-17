@@ -38,6 +38,7 @@
         <li><a href="BookStoreManagement.php"><span class="fa fa-cogs fa-lg"></span> Management</a></li>
         <li><a href="https://github.com/jpralves123/Final_Project_COM222/tree/master/_books"><span class="fa fa-github fa-lg"></span> Source Code</a></li>
         <li><a href="index.php"><span class="fa fa-home fa-lg"></span> Home</a></li>
+	<li><a href="AboutUs.php"><span class="fa fa-book fa-lg"></span> About Us</a></li>
         <li><a href="Exit.php"><span class="fa fa-sign-out fa-lg"></span> Exit</a></li>
       </ul>
 
