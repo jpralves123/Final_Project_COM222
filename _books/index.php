@@ -160,7 +160,6 @@ include_once('DatabaseConnection.php');
                               ".$row['description']."
                               <a>Read More</a>
                             </div>";
-
                   ?>
                 </div>
               </div>

@@ -29,7 +29,7 @@
       </form>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="AboutUs.html"><span class="fa fa-book fa-lg"></span> About Us</a></li>
+        <li><a href="AboutUs.php"><span class="fa fa-book fa-lg"></span> About Us</a></li>
         <li><a href="sign_up_page.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="login_page.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
