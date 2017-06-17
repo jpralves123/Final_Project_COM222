@@ -34,7 +34,7 @@ if (isset($_POST["search"])) {
 
   <head>
 
-    <title>Online Books</title>
+    <title>Search Browse</title>
     <!-- ************************************************ -->
     <!--HEADER-->
     <?php  include 'header.php'; ?>
@@ -121,7 +121,7 @@ if (isset($_POST["search"])) {
                   <div>";
 
             }
-            
+
           ?>
           </div>
         </div>
