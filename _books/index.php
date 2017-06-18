@@ -47,7 +47,7 @@
 		   randomBookShow();
 		 ?>
                 </div>
-		</div>
+		</div>";
             </div>
           </div>
 
@@ -93,10 +93,6 @@
             <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
       </div>
-    </div>
-
-    <div class="col-md-12">
-      <br> <br> <br>
     </div>
 
   </body>

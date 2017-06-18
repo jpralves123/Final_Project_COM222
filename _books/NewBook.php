@@ -3,6 +3,8 @@
 $isbn = $_POST['isbn'];
 $title = $_POST['title'];
 $description = $_POST['description'];
+$author = $_POST['author'];
+$category = $_POST['category'];
 $price = $_POST['price'];
 $publisher = $_POST['publisher'];
 $pubdate = $_POST['pub_date'];
@@ -34,9 +36,28 @@ if($array > 0 ){
         die();
 
       }else{
-        $query = "INSERT INTO bookdescriptions (ISBN, title, description, price, publisher, pubdate, edition, pages) VALUES ('$isbn','$title', '$description', '$price', '$publisher', '$pubdate', '$edition', '$pages')";
 
+        // Insere o livro na tabela
+        $query = "INSERT INTO bookdescriptions (ISBN, title, description, price, publisher, pubdate, edition, pages) VALUES ('$isbn','$title', '$description', '$price', '$publisher', '$pubdate', '$edition', '$pages')";
         $insert = mysqli_query($connect, $query);
+
+        // Liga o livro a sua categoria
+        $query = "INSERT INTO bookcategoriesbooks (CategoryID, ISBN) VALUES ('$category','$isbn')";
+        $insert = mysqli_query($connect, $query);
+
+        // Verifica se o author existe
+        $query_select = "SELECT * FROM bookauthors WHERE AuthorID = '$author'";
+        $select = mysqli_query($connect, $query_select);
+        $array = mysqli_num_rows($select);
+
+        // Se ja existe, liga seu id ao ISBN
+        if($array > 0 ){
+          $logarray = $array['ISBN'];
+        }
+
+        // Senão cria um novo autor
+
+        // liga seu id ao ISBN
 
         if($insert){
           echo"<script language='javascript' type='text/javascript'>alert('New Book added with sucess!');window.location.href='BookStoreManagement.html'</script>";
