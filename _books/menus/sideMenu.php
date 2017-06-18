@@ -32,7 +32,7 @@ if($total > 0) {
 
       <!--SIDEMENU-->
         <div class="col-md-12 btn-group-vertical" id="sidemenu">
-
+	 <br>
           <h3> Browse</h3>
 
           	<?php
@@ -47,6 +47,7 @@ if($total > 0) {
       // fim do if
       }
       ?>
+
     </div>
   </div>
 </body>
