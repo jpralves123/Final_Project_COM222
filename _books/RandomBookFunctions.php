@@ -38,7 +38,7 @@
 	}
 
 	function randomBookShow(){
-		echo "<li class=\"col-sm-4\">
+		echo "<div class=\"col-sm-4\">
     			<div class=\"fff\">";
 				$rdmBook = randomBook();
 				echo "<div class=\"panel-heading\">
@@ -54,6 +54,6 @@
 				<br><a href=\"ProductPage.php?ISBN=".$rdmBook['ISBN']."\">» Read More</a>
 			</div>
 			</div>
-		</li>";
+		</div>";
 	}
 ?>
