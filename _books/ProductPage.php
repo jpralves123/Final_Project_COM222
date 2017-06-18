@@ -54,10 +54,10 @@ if(isset($_GET['ISBN']) && $_GET['ISBN'] !== ''){
                             ".$rowISBN['title']."
                           </h3>
 
-                          <img class=\"col-md-3 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowISBN['ISBN'].".01.MZZZZZZZ.jpg\">
+                          <a href=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowISBN['ISBN'].".01.LZZZZZZZ.jpg\"><img class=\"col-md-3 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowISBN['ISBN'].".01.LZZZZZZZ.jpg\"></a>
 
                           <div class=\"col-md-9\">
-
+                            <br>
                             <h3><b>Price: </b>\$ _____</h3>
                             <br>
                             <h5><b>Author: </b>_________</h5>
