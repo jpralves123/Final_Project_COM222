@@ -26,6 +26,10 @@ if (isset($_POST["search"])) {
   $selectT = mysqli_query($connect, $query_selectT);
   $selectA = mysqli_query($connect, $query_selectA);
 
+  // Coleta os livros com a string
+  $rowT = mysqli_fetch_assoc($selectT);
+  $rowA = mysqli_fetch_assoc($selectA);
+
 }
 
 if(isset($_GET['catID']) && $_GET['catID'] !== ''){
@@ -82,6 +86,8 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
 
             do{
 
+              if($rowA > 0){
+
                 echo "<div class=\"panel\">
                       <div class=\"panel-body\">
                         <div class=\"panel-heading\">
@@ -97,31 +103,37 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
                       </div>
                     <div>";
 
+                } else {
+                  echo "No results.";
+                }
+
             }while($rowA = mysqli_fetch_assoc($selectA));
 
             do{
 
-              echo "<div class=\"panel\">
-                    <div class=\"panel-body\">
-                      <div class=\"panel-heading\">
-                        <h4 class=\"text-left\">
-                          <a href=\"ProductPage.php?ISBN=".$rowT['ISBN']."\">".$rowT['title']."</a>
-                        </h4>
-                      </div>
-                      <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowT['ISBN'].".01.MZZZZZZZ.jpg\">
+              if($rowT > 0){
 
-                      <div class=\"col-md-10 text-justify\">
-                        ".$rowT['description']."
-                      </div>
-                    </div>
-                  <div>";
+                echo "<div class=\"panel\">
+                      <div class=\"panel-body\">
+                        <div class=\"panel-heading\">
+                          <h4 class=\"text-left\">
+                            <a href=\"ProductPage.php?ISBN=".$rowT['ISBN']."\">".$rowT['title']."</a>
+                          </h4>
+                        </div>
+                        <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowT['ISBN'].".01.MZZZZZZZ.jpg\">
 
+                        <div class=\"col-md-10 text-justify\">
+                          ".$rowT['description']."
+                        </div>
+                      </div>
+                    <div>";
+
+                }
             }while($rowT = mysqli_fetch_assoc($selectT));
 
           } else {
 
               if(isset($_GET['catID']) && $_GET['catID'] !== ''){
-
                 do{
 
                   // cria a instrução SQL que vai selecionar os dados
@@ -151,11 +163,10 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
                           </div>
                         <div>";
 
-                    } else {
+                      } else {
+                        echo "No results.";
+                      }
 
-                      echo "No results.";
-
-                    }
                 }while($rowC = mysqli_fetch_assoc($selectC));
 
               } else {

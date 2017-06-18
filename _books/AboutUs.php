@@ -33,6 +33,12 @@
 	<br>It is important to note that the only way to create a user admin is by altering the column "admin" on the database.
       </p>
 
+      <br>
+
+      <p>
+        <kbd>This website was developed by João Pedro Rufino Alves and Mateus Romera Villar at the Federal University of Itajubá - UNIFEI.</kbd>
+      </p>
+
 
     </div>
 
