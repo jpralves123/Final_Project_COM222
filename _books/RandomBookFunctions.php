@@ -38,9 +38,16 @@
 	}
 
 	function randomBookShow(){
+		$ary = array();
+		for ($i=0; $i<3; $i++){
 		echo "<div class=\"col-sm-4\">
     			<div class=\"fff\">";
+
 				$rdmBook = randomBook();
+				while (in_array($rdmBook['ISBN'], $ary))
+					$rdmBook = randomBook();
+				array_push($ary, $rdmBook['ISBN']);
+
 				echo "<div class=\"panel-heading\">
                   			<h4 class=\"text-left\">
                               			<a href=\"ProductPage.php?ISBN=".$rdmBook['ISBN']."\">".$rdmBook['title']."</a>
@@ -55,5 +62,6 @@
 			</div>
 			</div>
 		</div>";
+		}
 	}
 ?>

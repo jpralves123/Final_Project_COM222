@@ -43,8 +43,6 @@
                 <div class="panel-body">
 		 <?php
 		   randomBookShow();
-                   randomBookShow();
-		   randomBookShow();
 		 ?>
                 </div>
 		</div>
@@ -59,8 +57,6 @@
                 <div class="panel-body">
                 <?php
 		   randomBookShow();
-                   randomBookShow();
-		   randomBookShow();
 		 ?>
                 </div>
               </div>
@@ -74,8 +70,6 @@
               <div class="panel">
                 <div class="panel-body">
                <?php
-		   randomBookShow();
-                   randomBookShow();
 		   randomBookShow();
 		 ?>
                 </div>
