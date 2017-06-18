@@ -47,7 +47,7 @@
 		   randomBookShow();
 		 ?>
                 </div>
-		</div>";
+		</div>
             </div>
           </div>
 
