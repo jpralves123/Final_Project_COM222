@@ -41,7 +41,7 @@
             <div class="col-md-10">
               <div class="panel">
                 <div class="panel-body">
-		 <?php 
+		 <?php
 		   randomBookShow();
                    randomBookShow();
 		   randomBookShow();
@@ -57,7 +57,7 @@
             <div class="col-md-10">
               <div class="panel">
                 <div class="panel-body">
-                <?php 
+                <?php
 		   randomBookShow();
                    randomBookShow();
 		   randomBookShow();
@@ -73,7 +73,7 @@
             <div class="col-md-10">
               <div class="panel">
                 <div class="panel-body">
-               <?php 
+               <?php
 		   randomBookShow();
                    randomBookShow();
 		   randomBookShow();
@@ -93,6 +93,10 @@
             <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
       </div>
+    </div>
+
+    <div class="col-md-12">
+      <br> <br> <br>
     </div>
 
   </body>
