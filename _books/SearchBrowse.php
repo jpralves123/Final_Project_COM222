@@ -79,7 +79,7 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
           <?php
           if (isset($_POST["search"])) {
 
-            while($rowA = mysqli_fetch_assoc($selectA)){
+            do{
 
                 echo "<div class=\"panel\">
                       <div class=\"panel-body\">
@@ -96,9 +96,9 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
                       </div>
                     <div>";
 
-            }
+            }while($rowA = mysqli_fetch_assoc($selectA));
 
-            while($rowT = mysqli_fetch_assoc($selectT)){
+            do{
 
               echo "<div class=\"panel\">
                     <div class=\"panel-body\">
@@ -115,13 +115,13 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
                     </div>
                   <div>";
 
-            }
+            }while($rowT = mysqli_fetch_assoc($selectT));
 
           } else {
 
               if(isset($_GET['catID']) && $_GET['catID'] !== ''){
 
-                while($rowC = mysqli_fetch_assoc($selectC)){
+                do{
 
                   // cria a instrução SQL que vai selecionar os dados
                   $query_selectB = "SELECT * FROM bookdescriptions WHERE ISBN LIKE '".$rowC['ISBN']."'"; // Categoria X ISBN
@@ -148,7 +148,7 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
                         </div>
                       <div>";
 
-                }
+                }while($rowC = mysqli_fetch_assoc($selectC));
 
               } else {
                 echo "No results.";
