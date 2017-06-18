@@ -66,7 +66,7 @@ if(isset($_GET['ISBN']) && $_GET['ISBN'] !== ''){
                             <h5><b>Edition: </b>_________</h5>
                             <h5><b>ISBN: </b>_________</h5>
                             <br>
-                            <a href=\"AboutUs.php\" class=\"btn btn-success\"><span class=\"fa fa-shopping-cart fa-lg\"></span> Add to Cart</a>
+                            <a href=\"ShoppingCart.php\" class=\"btn btn-success\"><span class=\"fa fa-shopping-cart fa-lg\"></span> Add to Cart</a>
                           </div>
 
                           <div class=\"col-md-12 text-justify\">
