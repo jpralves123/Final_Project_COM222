@@ -43,7 +43,7 @@
 				$rdmBook = randomBook();
 				echo "<div class=\"panel-heading\">
                   			<h4 class=\"text-left\">
-                              			<a>".$rdmBook['title']."</a>
+                              			<a href=\"ProductPage.php?ISBN=".$rdmBook['ISBN']."\">".$rdmBook['title']."</a>
                         		</h4>
                   		</div>
 			<div class=\"col-md-4 img-responsive center-block\">
