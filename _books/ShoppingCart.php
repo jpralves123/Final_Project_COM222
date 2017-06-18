@@ -1,24 +1,28 @@
 <?php
+  // conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
+  include_once('DatabaseConnection.php');
+  include_once('includes/functions_db.php');
+  include_once('includes/funtions_shoppingCart.php');
 
-// conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
-include_once('DatabaseConnection.php');
-
-// Verifica se o ISBN do livro foi passado via GET URL
-if(isset($_GET['ISBN']) && $_GET['ISBN'] !== ''){
-
-  // Coleta os dados via GET
-  $ISBN = $_GET['ISBN'];
-
-  // cria a instrução SQL que vai selecionar os dados
-  $query_selectISBN = "SELECT * FROM bookdescriptions WHERE ISBN LIKE '%".$ISBN."%'";
-
-  // executa a query
-  $selectISBN = mysqli_query($connect, $query_selectISBN);
-
-  // coleta os livros com aquele ISBN
-  $rowISBN = mysqli_fetch_assoc($selectISBN);
-
-}
+	if($_REQUEST['command']=='delete' && $_REQUEST['isbn']>0){
+		remove_product($_REQUEST['isbn']);
+	}
+	else if($_REQUEST['command']=='clear'){
+		unset($_SESSION['cart']);
+	}
+	else if($_REQUEST['command']=='update'){
+		$max=count($_SESSION['cart']);
+		for($i=0;$i<$max;$i++){
+			$ISBN=$_SESSION['cart'][$i]['productid'];
+			$q=intval($_REQUEST['product'.$ISBN]);
+			if($q>0 && $q<=999){
+				$_SESSION['cart'][$i]['qty']=$q;
+			}
+			else{
+				$msg='Some proudcts not updated!, quantity must be a number between 1 and 999';
+			}
+		}
+	}
 
 ?>
 
@@ -27,7 +31,7 @@ if(isset($_GET['ISBN']) && $_GET['ISBN'] !== ''){
   <!-- ************************************************ -->
   <head>
 
-    <title>Online Books</title>
+    <title>Shopping Cart</title>
 
     <!-- ************************************************ -->
     <!--HEADER-->
@@ -41,6 +45,7 @@ if(isset($_GET['ISBN']) && $_GET['ISBN'] !== ''){
   <body>
 
     <div class="container">
+
 
     	<table id="cart" class="table table-hover table-condensed">
 
@@ -90,7 +95,6 @@ if(isset($_GET['ISBN']) && $_GET['ISBN'] !== ''){
 
     				</table>
     </div>
-
 
   </body>
 
