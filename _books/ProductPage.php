@@ -18,6 +18,14 @@ if(isset($_GET['ISBN']) && $_GET['ISBN'] !== ''){
   // coleta os livros com aquele ISBN
   $rowISBN = mysqli_fetch_assoc($selectISBN);
 
+  // Busca nome do author
+  $query_selectAuthor = "SELECT * FROM bookauthorsbooks WHERE ISBN LIKE '%".$ISBN."%'";
+  $selectAuthor = mysqli_query($connect, $query_selectAuthor);
+  $rowAuthor = mysqli_fetch_assoc($selectAuthor);
+
+  $query_selectAuthor = "SELECT * FROM bookauthors WHERE AuthorID LIKE '%".$rowAuthor['AuthorID']."%'";
+  $selectAuthor = mysqli_query($connect, $query_selectAuthor);
+  $rowAuthor = mysqli_fetch_assoc($selectAuthor);
 }
 
 ?>
@@ -47,7 +55,7 @@ if(isset($_GET['ISBN']) && $_GET['ISBN'] !== ''){
       <div class="col-md-12">
             <?php
 
-              if($rowISBN > 0){
+              if($rowISBN > 0 and $rowAuthor > 0){
 
                   // Imprime dados do livro
                   echo "  <h3 class=\"text-left\">
@@ -57,22 +65,22 @@ if(isset($_GET['ISBN']) && $_GET['ISBN'] !== ''){
                           <a href=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowISBN['ISBN'].".01.LZZZZZZZ.jpg\"><img class=\"col-md-3 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowISBN['ISBN'].".01.LZZZZZZZ.jpg\"></a>
 
                           <div class=\"col-md-9\">
+                            <h3 class=\"text-success\"><b>Price: </b>\$ ".$rowISBN['price']."</h3>
                             <br>
-                            <h3><b>Price: </b>\$ _____</h3>
-                            <br>
-                            <h5><b>Author: </b>_________</h5>
-                            <h5><b>Publisher: </b>_________</h5>
-                            <h5><b>Pages: </b>_________</h5>
-                            <h5><b>Edition: </b>_________</h5>
-                            <h5><b>ISBN: </b>_________</h5>
+                            <h4><b>Author: </b>".$rowAuthor['nameF']." ".$rowAuthor['nameL']."</h4>
+                            <h4><b>Publisher: </b>".$rowISBN['publisher']."</h4>
+                            <h4><b>Pages: </b>".$rowISBN['pages']."</h4>
+                            <h4><b>Edition: </b>".$rowISBN['edition']."</h4>
+                            <h4><b>ISBN: </b>".$rowISBN['ISBN']."</h4>
                             <br>
                             <a href=\"ShoppingCart.php\" class=\"btn btn-success\"><span class=\"fa fa-shopping-cart fa-lg\"></span> Add to Cart</a>
                           </div>
 
                           <div class=\"col-md-12 text-justify\">
+                            <br>
                             <h5><b>Description</b></h5>
                             ".$rowISBN['description']."
-                      <div>";
+                          </div>";
 
               } else {
                 echo "No results.";
@@ -81,7 +89,11 @@ if(isset($_GET['ISBN']) && $_GET['ISBN'] !== ''){
             ?>
       </div>
     </div>
-      <br><br><br><br>
+
+    <div class="col-md-12">
+      <br> <br> <br>
+    </div>
+
 
   </body>
 
