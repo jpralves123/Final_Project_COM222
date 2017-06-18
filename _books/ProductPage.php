@@ -45,27 +45,33 @@ if(isset($_GET['ISBN']) && $_GET['ISBN'] !== ''){
 
     <div class="container-fluid col-md-10">
       <div class="col-md-12">
-        <div class="panel">
-          <div class="panel-body">
-
             <?php
 
               if($rowISBN > 0){
 
                   // Imprime dados do livro
-                  echo "<div class=\"panel\">
-                        <div class=\"panel-body\">
-                          <div class=\"panel-heading\">
-                            <h4 class=\"text-left\">
-                              ".$rowISBN['title']."
-                            </h4>
-                          </div>
-                          <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowISBN['ISBN'].".01.MZZZZZZZ.jpg\">
+                  echo "  <h3 class=\"text-left\">
+                            ".$rowISBN['title']."
+                          </h3>
 
-                          <div class=\"col-md-10 text-justify\">
-                            ".$rowISBN['description']."
+                          <img class=\"col-md-3 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowISBN['ISBN'].".01.MZZZZZZZ.jpg\">
+
+                          <div class=\"col-md-9\">
+
+                            <h3><b>Price: </b>\$ _____</h3>
+                            <br>
+                            <h5><b>Author: </b>_________</h5>
+                            <h5><b>Publisher: </b>_________</h5>
+                            <h5><b>Pages: </b>_________</h5>
+                            <h5><b>Edition: </b>_________</h5>
+                            <h5><b>ISBN: </b>_________</h5>
+                            <br>
+                            <a href=\"AboutUs.php\" class=\"btn btn-success\"><span class=\"fa fa-shopping-cart fa-lg\"></span> Add to Cart</a>
                           </div>
-                        </div>
+
+                          <div class=\"col-md-12 text-justify\">
+                            <h5><b>Description</b></h5>
+                            ".$rowISBN['description']."
                       <div>";
 
               } else {
@@ -73,17 +79,15 @@ if(isset($_GET['ISBN']) && $_GET['ISBN'] !== ''){
               }
 
             ?>
-
-          </div>
-        </div>
       </div>
     </div>
+      <br><br><br><br>
 
   </body>
 
   <!-- ************************************************ -->
   <!--FOOTER-->
-  <br>
+
   <?php  include 'footer.html'; ?>
   <!-- ************************************************ -->
 
