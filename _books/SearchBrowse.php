@@ -85,10 +85,8 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
                       <div class=\"panel-body\">
                         <div class=\"panel-heading\">
                           <h4 class=\"text-left\">
-                            <a>
-                              ".$rowA['title']."
-                            </a>
-                          </h4>
+                            <a href=\"ProductPage.php?ISBN=".$rowA['ISBN']."\">".$rowA['title']."</a>
+                          <h4>
                         </div>
                         <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowA['ISBN'].".01.MZZZZZZZ.jpg\">
 
@@ -106,9 +104,7 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
                     <div class=\"panel-body\">
                       <div class=\"panel-heading\">
                         <h4 class=\"text-left\">
-                          <a>
-                            ".$rowT['title']."
-                          </a>
+                          <a href=\"ProductPage.php?ISBN=".$rowT['ISBN']."\">".$rowT['title']."</a>
                         </h4>
                       </div>
                       <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowT['ISBN'].".01.MZZZZZZZ.jpg\">
@@ -141,9 +137,7 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
                         <div class=\"panel-body\">
                           <div class=\"panel-heading\">
                             <h4 class=\"text-left\">
-                              <a>
-                                ".$rowB['title']."
-                              </a>
+                              <a href=\"ProductPage.php?ISBN=".$rowB['ISBN']."\">".$rowB['title']."</a>
                             </h4>
                           </div>
                           <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowB['ISBN'].".01.MZZZZZZZ.jpg\">
@@ -152,7 +146,7 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
                             ".$rowB['description']."
                           </div>
                         </div>
-                      <div>";                  
+                      <div>";
 
                 }
 
@@ -167,6 +161,7 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
       </div>
 
     </div>
+
 
   </body>
 

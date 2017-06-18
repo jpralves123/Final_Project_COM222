@@ -25,7 +25,7 @@ if($array > 0 ){
 
   if($isbn == "" || $isbn == null || $title == "" || $title == null || $description == "" || $description == null || $title == "" || $title == null ){
 
-    echo"<script language='javascript' type='text/javascript'>alert('ISBN field must be filled in!');window.location.href='BookStoreManagement.html';</script>";
+    echo"<script language='javascript' type='text/javascript'>alert('ISBN field must be filled in!');window.location.href='BookStoreManagement.php';</script>";
 
     }else{
       if($logarray == $isbn){
