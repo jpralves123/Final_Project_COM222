@@ -57,7 +57,7 @@ if(isset($_GET['ISBN']) && $_GET['ISBN'] !== ''){
                         <div class=\"panel-body\">
                           <div class=\"panel-heading\">
                             <h4 class=\"text-left\">
-                              <a href=\"ProductPage.php?ISBN=".$rowISBN['ISBN']."\">".$rowISBN['title']."</a>
+                              ".$rowISBN['title']."
                             </h4>
                           </div>
                           <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowISBN['ISBN'].".01.MZZZZZZZ.jpg\">

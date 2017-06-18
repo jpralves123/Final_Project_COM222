@@ -77,6 +77,7 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
           <div class="panel-body">
 
           <?php
+
           if (isset($_POST["search"])) {
 
             do{
@@ -132,22 +133,29 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
                   // coleta ISBNs dos livros que daquela Categoria
                   $rowB = mysqli_fetch_assoc($selectB);
 
-                  // Imprime dados do livro
-                  echo "<div class=\"panel\">
-                        <div class=\"panel-body\">
-                          <div class=\"panel-heading\">
-                            <h4 class=\"text-left\">
-                              <a href=\"ProductPage.php?ISBN=".$rowB['ISBN']."\">".$rowB['title']."</a>
-                            </h4>
-                          </div>
-                          <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowB['ISBN'].".01.MZZZZZZZ.jpg\">
+                  if($rowB > 0){
 
-                          <div class=\"col-md-10 text-justify\">
-                            ".$rowB['description']."
-                          </div>
-                        </div>
-                      <div>";
+                    // Imprime dados do livro
+                    echo "<div class=\"panel\">
+                          <div class=\"panel-body\">
+                            <div class=\"panel-heading\">
+                              <h4 class=\"text-left\">
+                                <a href=\"ProductPage.php?ISBN=".$rowB['ISBN']."\">".$rowB['title']."</a>
+                              </h4>
+                            </div>
+                            <img class=\"col-md-2 img-responsive center-block\" src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rowB['ISBN'].".01.MZZZZZZZ.jpg\">
 
+                            <div class=\"col-md-10 text-justify\">
+                              ".$rowB['description']."
+                            </div>
+                          </div>
+                        <div>";
+
+                    } else {
+
+                      echo "No results.";
+
+                    }
                 }while($rowC = mysqli_fetch_assoc($selectC));
 
               } else {
