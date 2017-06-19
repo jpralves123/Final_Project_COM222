@@ -1,5 +1,11 @@
 ﻿<!--PÁGINA PRINCIPAL-->
+<?php
 
+  //Inicia o site limpando o carrinho de compras
+  include 'includes/functions_shoppingCart.php';  
+  delete_cookie_cart();
+
+ ?>
 
 
 <!DOCTYPE hml>

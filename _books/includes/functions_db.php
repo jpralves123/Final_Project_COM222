@@ -1,10 +1,13 @@
 <?php
 
-  // conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
-  include_once('DatabaseConnection.php');
-
   // Retorna o título do livro
 	function get_book_title($ISBN){
+
+    // conecta ao banco de dados
+    $connect = mysqli_connect('localhost','root','');
+
+    // seleciona a base de dados em que vamos trabalhar
+    $db = mysqli_select_db($connect, 'sandvigbookstore');
 
     // cria a instrução SQL que vai selecionar os dados
     $query_select = "SELECT * FROM bookdescriptions WHERE ISBN LIKE '%".$ISBN."%'";
@@ -16,12 +19,19 @@
     $row = mysqli_fetch_assoc($select);
 
     // retorna o nome do livro
-    return $row['name'];
+    return $row['title'];
 	}
 
   // Retorna o preço do livro
 	function get_book_price($ISBN){
 
+    // conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
+    // conecta ao banco de dados
+    $connect = mysqli_connect('localhost','root','');
+
+    // seleciona a base de dados em que vamos trabalhar
+    $db = mysqli_select_db($connect, 'sandvigbookstore');
+
     // cria a instrução SQL que vai selecionar os dados
     $query_select = "SELECT * FROM bookdescriptions WHERE ISBN LIKE '%".$ISBN."%'";
 
@@ -31,12 +41,18 @@
     // transforma os dados em um array
     $row = mysqli_fetch_assoc($select);
 
-    // retorna o nome do livro
-    return $row['name'];
+    // retorna o preço do livro
+    return $row['price'];
 	}
 
   // remove o livro da base de dados
   function remove_book($ISBN){
+
+    // conecta ao banco de dados
+    $connect = mysqli_connect('localhost','root','');
+
+    // seleciona a base de dados em que vamos trabalhar
+    $db = mysqli_select_db($connect, 'sandvigbookstore');
 
     // cria a instrução SQL
     $query_selectB = "DELETE FROM bookdescriptions WHERE ISBN LIKE '%".$ISBN."%'";
@@ -55,6 +71,10 @@
        echo"<script language='javascript' type='text/javascript'>alert('Book deleted with success!');";
     }
 
+  }
+
+  function get_image_book($ISBN){
+    return "https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$ISBN.".01.MZZZZZZZ.jpg";
   }
 
 ?>

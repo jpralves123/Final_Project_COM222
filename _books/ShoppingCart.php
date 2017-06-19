@@ -1,9 +1,17 @@
-<?php include 'includes/functions_shoppingCart.php';
-add_book_cart("111111");
-add_book_cart("222222");
-add_book_cart("333333");
-add_book_cart("444444");
-add_book_cart("555555");
+<?php
+  include 'includes/functions_shoppingCart.php';
+  include 'includes/functions_db.php';
+
+delete_cookie_cart();
+
+add_book_cart("0596101104",12);
+add_book_cart("0672328232",17);
+add_book_cart("0596007272",3);
+add_book_cart("1590595726",1);
+
+// Atualiza lista de compras da página
+$cart = list_books_cart_array();
+
 ?>
 
 <!DOCTYPE hml>
@@ -26,40 +34,68 @@ add_book_cart("555555");
 
     <div class="container">
 
-      <!--
     	<table id="cart" class="table table-hover table-condensed">
 
                 <thead>
     						<tr>
-    							<th style="width:50%">Product</th>
+    							<th style="width:48%">Product</th>
     							<th style="width:10%">Price</th>
-    							<th style="width:8%">Quantity</th>
+    							<th style="width:10%" class="text-center">Quantity</th>
     							<th style="width:22%" class="text-center">Subtotal</th>
     							<th style="width:10%"></th>
     						</tr>
     					</thead>
 
-    					<tbody>
-    						<tr>
-    							<td data-th="Product">
-    								<div class="row">
-    									<div class="col-sm-2 hidden-xs"><img src="007184158X.01.MZZZZZZZ.jpg" alt="..." class="img-responsive"/></div>
-    									<div class="col-sm-10">
-    										<h4 class="nomargin"><a>JavaScript: 20 Lessons to Successful Web Development</a></h4>
-    									</div>
-    								</div>
-    							</td>
-    							<td data-th="Price">$1.99</td>
-    							<td data-th="Quantity">
-    								<input type="number" class="form-control text-center" value="1">
-    							</td>
-    							<td data-th="Subtotal" class="text-center">1.99</td>
-    							<td class="actions" data-th="">
-    								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-    								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-    							</td>
-    						</tr>
-    					</tbody>
+              <?php if($cart !== NULL){ ?>
+
+      					<tbody>
+
+                  <?php
+                    // Início do loop
+                    foreach($cart as $book){
+                      $book = unserialize($book);
+                      $bookISBN = $book[0];
+                      $bookTitle = get_book_title($book[0]);
+                      $bookQuant = $book[1];
+                      $bookPrice = get_book_price($book[0]);
+                  ?>
+
+        						<tr>
+        							<td data-th="Product">
+        								<div class="row">
+        									<div class="col-sm-2 hidden-xs text-center"><img src=<?php echo get_image_book($bookISBN) ?> alt="..." class="img-responsive"/></div>
+        									<div class="col-sm-10">
+        										<h4 class="nomargin">
+                              <a>
+                                <?php echo $bookTitle; ?>
+                              </a>
+                            </h4>
+        									</div>
+        								</div>
+        							</td>
+        							<td data-th="Price">
+                        <?php echo $bookPrice; ?>
+                      </td>
+        							<td data-th="Quantity">
+        								<?php echo "<input type=\"number\" class=\"form-control text-center\" value=".$bookQuant.">"; ?>
+        							</td>
+        							<td data-th="Subtotal" class="text-center">
+                        <?php echo $bookPrice*$bookQuant ?>
+                      </td>
+        							<td class="actions" data-th="">
+        								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+        								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+        							</td>
+        						</tr>
+
+                  <?php
+                    // Fim do loop
+                    }
+                  ?>
+
+      					</tbody>
+
+              <?php } ?>
 
     					<tfoot>
     						<tr class="visible-xs">
@@ -68,12 +104,16 @@ add_book_cart("555555");
     						<tr>
     							<td><a href="index.php" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
     							<td colspan="2" class="hidden-xs"></td>
-    							<td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
+    							<td class="hidden-xs text-center">
+                    <strong>
+                      <?php echo calculate_total_value(); ?>
+                    </strong>
+                  </td>
     							<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
     						</tr>
     					</tfoot>
 
-    				</table> -->
+    				</table>
 
             <?php
               echo list_books_cart();

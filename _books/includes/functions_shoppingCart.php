@@ -1,8 +1,13 @@
 <?php
 
+  // Deleta o cookie
+  function delete_cookie_cart(){
+    $cookie_name = 'ShoppingCart';
+    unset($_COOKIE[$cookie_name]);
+  }
 
   // Adiciona livros ao vetor do cookie
-  function add_book_cart($ISBN){
+  function add_book_cart($bookISBN, $bookQuant){
 
     $cookie_name = 'ShoppingCart';
 
@@ -10,27 +15,33 @@
 
       // unserialize cookie
       $cart = unserialize($_COOKIE[$cookie_name]);
-      print_r(array_values($cart));
 
-      // Adiciona ISBN na lista
-      array_push($cart, $ISBN);
-
-      // serializa novamente e salva no cookie
-      setcookie($cookie_name, serialize($cart)); // 86400 = 1 day
 
     } else {
 
-      // Cria um cookie chamado ShoppingCart e adiciona um array vazio a ele
-      $cookie_name = 'ShoppingCart';
+      // Limpa a variável cart
+      unset($cart);
+
+      // Inicia a variável cart denovo
       $cart = array();
 
-      // Adiciona ISBN ao vetor
-      array_push($cart, $ISBN);
-
-      // Seta o cookie
-      setcookie($cookie_name, serialize($cart)); // 86400 = 1 day
-
     }
+
+    // ADICIONA PRODUTO NA LISTA
+    // Limpa array se ele ja existir
+    if(isset($bookINFO)){
+      unset($bookINFO);
+    }
+
+    // Reinicia array
+    $bookINFO = array();
+    array_push($bookINFO, $bookISBN, $bookQuant);
+
+    // Adiciona bookINFO no carrinho
+    array_push($cart, serialize($bookINFO));
+
+    // serializa novamente e salva no cookie
+    $_COOKIE[$cookie_name] = serialize($cart);
 
   }
 
@@ -44,15 +55,68 @@
       // Caso o carrinho contenha livros
       $cart = unserialize($_COOKIE[$cookie_name]);
 
-      for ($i=0; $i < count($cart); $i++){
-        echo "Key : " . key($cart) . " Value : " . $cart[$i] . "<br>";
-        next($cart);
+      foreach($cart as $book){
+
+          $book = unserialize($book);
+
+          echo "ISBN: ".$book[0]." QUANT.: ".$book[1]."<br>";
+
       }
 
     } else {
 
       // Caso o carrinho esteja vazio
       echo "<p>Empety Cart</p>";
+
+    }
+
+  }
+
+  function list_books_cart_array(){
+    $cookie_name = 'ShoppingCart';
+
+    if(isset($_COOKIE[$cookie_name])) {
+
+      // Caso o carrinho contenha livros
+      $cart = unserialize($_COOKIE[$cookie_name]);
+
+      return $cart;
+
+    } else {
+
+      // Caso o carrinho esteja vazio
+      return NULL;
+
+    }
+  }
+
+  function calculate_total_value(){
+
+    $cookie_name = 'ShoppingCart';
+    $totalValue = 0;
+
+    if(isset($_COOKIE[$cookie_name])) {
+
+      // inclui funções de manipulação do banco
+      include_once("functions_db.php");
+
+      // Caso o carrinho contenha livros
+      $cart = unserialize($_COOKIE[$cookie_name]);
+
+      foreach($cart as $book){
+
+          $book = unserialize($book);
+
+          $totalValue = $totalValue + ($book[1]*get_book_price($book[0]));
+
+      }
+
+      return $totalValue;
+
+    } else {
+
+      // Caso o carrinho esteja vazio
+      return 0;
 
     }
 
