@@ -28,5 +28,16 @@
     }
   }
 
+  if (isset($_GET['command']) and $_GET['command'] == "empty") {
+
+    // Limpa o cookie
+    delete_cookie_cart();
+
+    // Atualiza a página
+    echo"<script language='javascript' type='text/javascript'>window.location.href='ShoppingCart.php';</script>";
+
+
+  }
+
 
  ?>
