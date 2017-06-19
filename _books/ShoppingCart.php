@@ -38,7 +38,9 @@
     							<th style="width:10%">Price</th>
     							<th style="width:10%" class="text-center">Quantity</th>
     							<th style="width:22%" class="text-center">Subtotal</th>
-    							<th style="width:10%"></th>
+    							<th style="width:10%">
+                    <a href="AddNewBook.php" class="btn btn-primary btn-create text-center">Empty</a>
+                  </th>
     						</tr>
     					</thead>
 

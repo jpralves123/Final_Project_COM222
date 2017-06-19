@@ -76,7 +76,7 @@ if(isset($_GET['ISBN']) && $_GET['ISBN'] !== ''){
                             <h4><b>Edition: </b>".$rowISBN['edition']."</h4>
                             <h4><b>ISBN: </b>".$rowISBN['ISBN']."</h4>
                             <br>
-                            <a href=\"AddToCart_Control.php?ISBN=".$rowISBN['ISBN']."\" class=\"btn btn-success\"><span class=\"fa fa-shopping-cart fa-lg\"></span> Add to Cart</a>
+                            <a href=\"AddToCart_Control.php?command=add"."&ISBN=".$rowISBN['ISBN']."\" class=\"btn btn-success\"><span class=\"fa fa-shopping-cart fa-lg\"></span> Add to Cart</a>
                           </div>
 
                           <div class=\"col-md-12 text-justify\">

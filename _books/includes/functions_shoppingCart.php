@@ -6,7 +6,8 @@
     $cookie_name = 'ShoppingCart';
 
     if(isset($_COOKIE[$cookie_name])) {
-      unset($_COOKIE[$cookie_name]);
+      //unset($_COOKIE[$cookie_name]);
+      setcookie($cookie_name);
     }
 
   }
@@ -85,7 +86,7 @@
     } else {
 
       // Caso o carrinho esteja vazio
-      echo "<p>Empety Cart</p>";
+      echo "<p>Empty Cart</p>";
 
     }
 
