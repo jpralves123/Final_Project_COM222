@@ -6,7 +6,7 @@
     $cookie_name = 'ShoppingCart';
 
     if(isset($_COOKIE[$cookie_name])) {
-      setcookie($cookie_name, "", time() - 3600);
+      setcookie($cookie_name, "", time() - 3600, "/");
     }
 
   }
