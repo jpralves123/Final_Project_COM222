@@ -72,6 +72,7 @@
 
   }
 
+  // Gera um array com os elementos do carrinho
   function list_books_cart_array(){
     $cookie_name = 'ShoppingCart';
 
@@ -90,6 +91,7 @@
     }
   }
 
+  // Calcula valor total do carrinho
   function calculate_total_value(){
 
     $cookie_name = 'ShoppingCart';
@@ -120,6 +122,23 @@
 
     }
 
+  }
+
+  // Remove item do carrinho
+  function remove_book_cart($ISBN){
+
+    $cookie_name = 'ShoppingCart';
+
+    $cart = unserialize($_COOKIE[$cookie_name]);
+
+    foreach($cart as $book){
+
+        $book = unserialize($book);
+
+        // remove livro
+        unset($book);
+
+    }
   }
 
 ?>

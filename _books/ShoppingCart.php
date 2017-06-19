@@ -2,12 +2,10 @@
   include 'includes/functions_shoppingCart.php';
   include 'includes/functions_db.php';
 
-delete_cookie_cart();
-
-add_book_cart("0596101104",12);
-add_book_cart("0672328232",17);
-add_book_cart("0596007272",3);
-add_book_cart("1590595726",1);
+  add_book_cart("0596101104",12);
+  add_book_cart("0672328232",17);
+  add_book_cart("0596007272",3);
+  add_book_cart("1590595726",1);
 
 // Atualiza lista de compras da página
 $cart = list_books_cart_array();
@@ -84,7 +82,7 @@ $cart = list_books_cart_array();
                       </td>
         							<td class="actions" data-th="">
         								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-        								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+        								<button class="btn btn-danger btn-sm" onclick=""><i class="fa fa-trash-o"></i></button>
         							</td>
         						</tr>
 
