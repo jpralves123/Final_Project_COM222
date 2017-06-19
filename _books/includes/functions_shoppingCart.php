@@ -10,12 +10,13 @@
 
       // unserialize cookie
       $cart = unserialize($_COOKIE[$cookie_name]);
+      print_r(array_values($cart));
 
       // Adiciona ISBN na lista
       array_push($cart, $ISBN);
 
       // serializa novamente e salva no cookie
-      setcookie($cookie_name, serialize($cart), time() + (86400 * 30), '/'); // 86400 = 1 day
+      setcookie($cookie_name, serialize($cart)); // 86400 = 1 day
 
     } else {
 
@@ -27,7 +28,7 @@
       array_push($cart, $ISBN);
 
       // Seta o cookie
-      setcookie($cookie_name, serialize($cart), time() + (86400 * 30), '/'); // 86400 = 1 day
+      setcookie($cookie_name, serialize($cart)); // 86400 = 1 day
 
     }
 
@@ -44,7 +45,7 @@
       $cart = unserialize($_COOKIE[$cookie_name]);
 
       for ($i=0; $i < count($cart); $i++){
-        echo "Key : " . key($cart) . " Value : " . current($cart) . "<br>";
+        echo "Key : " . key($cart) . " Value : " . $cart[$i] . "<br>";
         next($cart);
       }
 

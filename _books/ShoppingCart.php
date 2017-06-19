@@ -1,4 +1,10 @@
-<?php include 'includes/functions_shoppingCart.php'; ?>
+<?php include 'includes/functions_shoppingCart.php';
+add_book_cart("111111");
+add_book_cart("222222");
+add_book_cart("333333");
+add_book_cart("444444");
+add_book_cart("555555");
+?>
 
 <!DOCTYPE hml>
 <html lang="en">
@@ -70,15 +76,7 @@
     				</table> -->
 
             <?php
-
-              add_book_cart("111111");
-              add_book_cart("222222");
-              add_book_cart("333333");
-              add_book_cart("444444");
-              add_book_cart("555555");
-
-              list_books_cart();
-
+              echo list_books_cart();
              ?>
     </div>
 
