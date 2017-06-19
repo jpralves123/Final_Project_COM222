@@ -9,12 +9,15 @@ include_once("./DatabaseConnection.php");
 
 // cria a instrução SQL que vai selecionar os dados
 $query_select = "SELECT * FROM bookcategories";
+$query_selectA = "SELECT * FROM bookauthors";
 
 // executa a query
 $select = mysqli_query($connect, $query_select);
+$selectA = mysqli_query($connect, $query_selectA);
 
 // transforma os dados em um array
 $row = mysqli_fetch_assoc($select);
+$rowA = mysqli_fetch_assoc($selectA);
 
 // calcula quantos dados retornaram
 $total = mysqli_num_rows($select);
@@ -57,32 +60,43 @@ if($total > 0) {
           <label for="exampleInputEmail1">Description</label>
           <input type="text" class="form-control" id="description"  name="description" placeholder="Book Description"/>
         </div>
-        <div class="form-group col-md-3">
-          <label for="exampleInputEmail1">Author First Name</label>
-          <input type="text" class="form-control" id="nameF"  name="nameF" placeholder="First Name"/>
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">Author</label>
+          <select type="text" class="form-control" id="author"  name="author" placeholder="Book Category">
+            <option></option>
+            <?php
+                do{
+                  echo '<option value=\"'. $rowA['AuthorID'] .'\">' . $rowA['nameF'] ." ". $rowA['nameL'] .'</option>';
+                }while($rowA = mysqli_fetch_assoc($selectA));
+            ?>
+          </select>
         </div>
-        <div class="form-group col-md-3">
-          <label for="exampleInputEmail1">Author Last Name</label>
-          <input type="text" class="form-control" id="nameL"  name="nameL" placeholder="Last Name"/>
+        <div class="form-group col-md-1">
+          <label for="exampleInputEmail1">New</label><br>
+          <a href="#" class="btn btn-default"><em class="fa fa-plus"></em></a>
         </div>
         <div class="form-group col-md-3">
           <label for="exampleInputEmail1">Category</label>
           <select type="text" class="form-control" id="category"  name="category" placeholder="Book Category">
+            <option></option>
             <?php
             		do{
                   echo '<option value=\"'. $row['CategoryID'] .'\">' . $row['CategoryName'] . '</option>';
                 }while($row = mysqli_fetch_assoc($select));
            	?>
-            <option value="3">New Category</option>
           </select>
           <?php
           // fim do if
           }
           ?>
         </div>
+        <div class="form-group col-md-1">
+          <label for="exampleInputEmail1">New</label><br>
+          <a href="#" class="btn btn-default"><em class="fa fa-plus"></em></a>
+        </div>
         <div class="form-group col-md-3">
           <label for="exampleInputEmail1">Price</label>
-          <input type="text" class="form-control" id="price"  name="price" placeholder="Book Price"/>
+          <input type="number" class="form-control" id="price"  name="price" placeholder="Book Price"/>
         </div>
         <div class="form-group col-md-5">
           <label for="exampleInputEmail1">Publisher</label>

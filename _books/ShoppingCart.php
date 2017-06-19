@@ -1,30 +1,4 @@
-<?php
-  // conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
-  include_once('DatabaseConnection.php');
-  include_once('includes/functions_db.php');
-  include_once('includes/funtions_shoppingCart.php');
-
-	if($_REQUEST['command']=='delete' && $_REQUEST['isbn']>0){
-		remove_product($_REQUEST['isbn']);
-	}
-	else if($_REQUEST['command']=='clear'){
-		unset($_SESSION['cart']);
-	}
-	else if($_REQUEST['command']=='update'){
-		$max=count($_SESSION['cart']);
-		for($i=0;$i<$max;$i++){
-			$ISBN=$_SESSION['cart'][$i]['productid'];
-			$q=intval($_REQUEST['product'.$ISBN]);
-			if($q>0 && $q<=999){
-				$_SESSION['cart'][$i]['qty']=$q;
-			}
-			else{
-				$msg='Some proudcts not updated!, quantity must be a number between 1 and 999';
-			}
-		}
-	}
-
-?>
+<?php include 'includes/functions_shoppingCart.php'; ?>
 
 <!DOCTYPE hml>
 <html lang="en">
@@ -46,7 +20,7 @@
 
     <div class="container">
 
-
+      <!--
     	<table id="cart" class="table table-hover table-condensed">
 
                 <thead>
@@ -93,7 +67,19 @@
     						</tr>
     					</tfoot>
 
-    				</table>
+    				</table> -->
+
+            <?php
+
+              add_book_cart("111111");
+              add_book_cart("222222");
+              add_book_cart("333333");
+              add_book_cart("444444");
+              add_book_cart("555555");
+
+              list_books_cart();
+
+             ?>
     </div>
 
   </body>

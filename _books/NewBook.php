@@ -11,6 +11,9 @@ $pubdate = $_POST['pub_date'];
 $edition = $_POST['edition'];
 $pages = $_POST['pages'];
 
+//echo"<script language='javascript' type='text/javascript'>alert('".$category."');window.location.href='BookStoreManagement.php';</script>";
+
+
 // Conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
 include_once('DatabaseConnection.php');
 
@@ -38,31 +41,22 @@ if($array > 0 ){
       }else{
 
         // Insere o livro na tabela
-        $query = "INSERT INTO bookdescriptions (ISBN, title, description, price, publisher, pubdate, edition, pages) VALUES ('$isbn','$title', '$description', '$price', '$publisher', '$pubdate', '$edition', '$pages')";
-        $insert = mysqli_query($connect, $query);
+        $queryB = "INSERT INTO bookdescriptions (ISBN, title, description, price, publisher, pubdate, edition, pages) VALUES ('$isbn','$title', '$description', '$price', '$publisher', '$pubdate', '$edition', '$pages')";
+        $insert = mysqli_query($connect, $queryB);
 
         // Liga o livro a sua categoria
-        $query = "INSERT INTO bookcategoriesbooks (CategoryID, ISBN) VALUES ('$category','$isbn')";
-        $insert = mysqli_query($connect, $query);
+        $queryC = "INSERT INTO bookcategoriesbooks (CategoryID, ISBN) VALUES ('$category','$isbn')";
+        $insert = mysqli_query($connect, $queryC);
 
-        // Verifica se o author existe
-        $query_select = "SELECT * FROM bookauthors WHERE AuthorID = '$author'";
-        $select = mysqli_query($connect, $query_select);
-        $array = mysqli_num_rows($select);
 
-        // Se ja existe, liga seu id ao ISBN
-        if($array > 0 ){
-          $logarray = $array['ISBN'];
-        }
-
-        // Senão cria um novo autor
-
-        // liga seu id ao ISBN
+        // liga seu id do autor ao ISBN
+        $queryA = "INSERT INTO bookauthorsbooks (ISBN, AuthorID) VALUES ('$isbn','$author')";
+        $insert = mysqli_query($connect, $queryA);
 
         if($insert){
-          echo"<script language='javascript' type='text/javascript'>alert('New Book added with sucess!');window.location.href='BookStoreManagement.html'</script>";
+          echo"<script language='javascript' type='text/javascript'>alert('New Book added with sucess!');window.location.href='BookStoreManagement.php'</script>";
         }else{
-          echo"<script language='javascript' type='text/javascript'>alert('Could not register this Book!');window.location.href='BookStoreManagement.html'</script>";
+          echo"<script language='javascript' type='text/javascript'>alert('Could not register this Book!');window.location.href='BookStoreManagement.php'</script>";
         }
 
       }
