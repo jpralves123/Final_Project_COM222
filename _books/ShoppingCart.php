@@ -116,8 +116,8 @@
 
     				</table>
 
-            <?php         
-              echo list_books_cart();
+            <?php
+              //echo list_books_cart();
             ?>
     </div>
 
