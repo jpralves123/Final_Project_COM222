@@ -3,6 +3,9 @@
 // Conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
 include_once('DatabaseConnection.php');
 
+// Funções do carrinho de compras
+include_once('includes/functions_shoppingCart.php');
+
 // Verifica se o ISBN do livro foi passado via GET URL
 if(isset($_GET['ISBN']) && $_GET['ISBN'] !== ''){
 
@@ -73,7 +76,7 @@ if(isset($_GET['ISBN']) && $_GET['ISBN'] !== ''){
                             <h4><b>Edition: </b>".$rowISBN['edition']."</h4>
                             <h4><b>ISBN: </b>".$rowISBN['ISBN']."</h4>
                             <br>
-                            <a href=\"ShoppingCart.php\" class=\"btn btn-success\"><span class=\"fa fa-shopping-cart fa-lg\"></span> Add to Cart</a>
+                            <a href=\"AddToCart_Control.php?ISBN=".$rowISBN['ISBN']."\" class=\"btn btn-success\"><span class=\"fa fa-shopping-cart fa-lg\"></span> Add to Cart</a>
                           </div>
 
                           <div class=\"col-md-12 text-justify\">

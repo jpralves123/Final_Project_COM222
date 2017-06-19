@@ -2,8 +2,13 @@
 
   // Deleta o cookie
   function delete_cookie_cart(){
+
     $cookie_name = 'ShoppingCart';
-    unset($_COOKIE[$cookie_name]);
+
+    if(isset($_COOKIE[$cookie_name])) {
+      unset($_COOKIE[$cookie_name]);
+    }
+
   }
 
   // Adiciona livros ao vetor do cookie
@@ -11,37 +16,46 @@
 
     $cookie_name = 'ShoppingCart';
 
-    if(isset($_COOKIE[$cookie_name])) {
+    // Verifica se o cookie existe
+    if(!isset($_COOKIE[$cookie_name])) {
 
-      // unserialize cookie
-      $cart = unserialize($_COOKIE[$cookie_name]);
+      // Se o array $cart ja existe, é limpo
+      if(isset($cart)){
+        unset($cart);
+      }
 
+      // Cria um array de compras
+      $cart = array();
+
+      // Se o array $bookINFO ja existe, é limpo
+      if(isset($bookINFO)){
+        unset($bookINFO);
+      }
+
+      // Cria array do produto com ISBN + quantidade
+      $bookINFO = array($bookISBN, $bookQuant);
+
+      // Adiciona o array de produto no array de compras
+      array_push($cart, serialize($bookINFO));
+
+      // da um serialize no vetor de compras e cria um novo cookie com o vetor atualizado
+      setcookie($cookie_name, serialize($cart), time() + (86400 * 30), "/"); // 86400 = 1 day
 
     } else {
 
-      // Limpa a variável cart
-      unset($cart);
+      // Se sim da um unserialize para acessar o array de compras
+      $cart = unserialize($_COOKIE[$cookie_name]);
 
-      // Inicia a variável cart denovo
-      $cart = array();
+      // Cria array do produto com ISBN + quantidade
+      $bookINFO = array($bookISBN, $bookQuant);
+
+      // Adiciona o array de produto no array de compras
+      array_push($cart, serialize($bookINFO));
+
+      // da um serialize no vetor de compras e cria um novo cookie com o vetor atualizado
+      setcookie($cookie_name, serialize($cart), time() + (86400 * 30), "/"); // 86400 = 1 day
 
     }
-
-    // ADICIONA PRODUTO NA LISTA
-    // Limpa array se ele ja existir
-    if(isset($bookINFO)){
-      unset($bookINFO);
-    }
-
-    // Reinicia array
-    $bookINFO = array();
-    array_push($bookINFO, $bookISBN, $bookQuant);
-
-    // Adiciona bookINFO no carrinho
-    array_push($cart, serialize($bookINFO));
-
-    // serializa novamente e salva no cookie
-    $_COOKIE[$cookie_name] = serialize($cart);
 
   }
 
@@ -50,16 +64,21 @@
 
     $cookie_name = 'ShoppingCart';
 
+    // Verifica se o cookie existe
     if(isset($_COOKIE[$cookie_name])) {
 
-      // Caso o carrinho contenha livros
+      // Se sim
+      // Da um unserialize no array de compras
       $cart = unserialize($_COOKIE[$cookie_name]);
 
+      // Para cada produto
       foreach($cart as $book){
 
-          $book = unserialize($book);
+        // Da unserialize
+        $book = unserialize($book);
 
-          echo "ISBN: ".$book[0]." QUANT.: ".$book[1]."<br>";
+        // Imprime na tela o ISBN e quantidade de unidades
+        echo "ISBN: ".$book[0]." QUANT.: ".$book[1]."<br>";
 
       }
 

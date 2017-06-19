@@ -2,18 +2,16 @@
   include 'includes/functions_shoppingCart.php';
   include 'includes/functions_db.php';
 
-  add_book_cart("0596101104",12);
-  add_book_cart("0672328232",17);
-  add_book_cart("0596007272",3);
-  add_book_cart("1590595726",1);
+  //delete_cookie_cart();
 
-// Atualiza lista de compras da página
-$cart = list_books_cart_array();
+  // Atualiza lista de compras da página
+  $cart = list_books_cart_array();
 
 ?>
 
 <!DOCTYPE hml>
 <html lang="en">
+
   <!-- ************************************************ -->
   <head>
 
@@ -115,7 +113,7 @@ $cart = list_books_cart_array();
 
             <?php
               echo list_books_cart();
-             ?>
+            ?>
     </div>
 
   </body>
