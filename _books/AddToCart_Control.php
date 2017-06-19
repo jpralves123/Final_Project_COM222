@@ -36,8 +36,6 @@
     // Atualiza a página
     echo"<script language='javascript' type='text/javascript'>window.location.href='ShoppingCart.php';</script>";
 
-
   }
-
 
  ?>

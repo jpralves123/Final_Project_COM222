@@ -2,11 +2,6 @@
   include 'includes/functions_shoppingCart.php';
   include 'includes/functions_db.php';
 
-  //delete_cookie_cart();
-
-  // Atualiza lista de compras da página
-  $cart = list_books_cart_array();
-
 ?>
 
 <!DOCTYPE hml>
@@ -39,16 +34,24 @@
     							<th style="width:10%" class="text-center">Quantity</th>
     							<th style="width:22%" class="text-center">Subtotal</th>
     							<th style="width:10%">
-                    <a href="AddNewBook.php" class="btn btn-primary btn-create text-center">Empty</a>
+                    <a href="AddToCart_Control.php?command=empty" class="btn btn-danger">Empty</a>
                   </th>
     						</tr>
     					</thead>
 
-              <?php if($cart !== NULL){ ?>
+              <?php
+
+                // Atualiza lista de compras da página
+                $cart = list_books_cart_array();
+
+                if($cart !== NULL){
+
+              ?>
 
       					<tbody>
 
                   <?php
+
                     // Início do loop
                     foreach($cart as $book){
                       $book = unserialize($book);
