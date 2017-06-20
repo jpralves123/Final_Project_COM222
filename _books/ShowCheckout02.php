@@ -63,9 +63,13 @@ else
           <label for="Add an Description">State</label>
           <input type="text" class="form-control" id="state"  name="state" value="<?php echo strip_tags($row['state']);?>"/>
         </div>
-	<div class="form-group col-md-12">
+	<div class="form-group col-md-6">
           <label for="Add an Description">ZIP</label>
           <input type="text" class="form-control" id="zip"  name="zip" value="<?php echo strip_tags($row['zip']);?>"/>
+        </div>
+	<div class="form-group col-md-6">
+          <label for="Add an Description">E-mail</label>
+          <input type="text" class="form-control" id="nome"  name="nome" value="<?php echo strip_tags($row['nome']);?>" readonly/>
         </div>
 	<div class="form-group col-md-8">
           <label for="Add an Description">Login</label>
