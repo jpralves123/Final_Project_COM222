@@ -8,6 +8,10 @@ include_once('DatabaseConnection.php');
 // Verifica se foi uma busca comum (barra de pesquisa) ou se o side menu foi acionado
 if (isset($_POST["search"])) {
 
+  if($_POST["search"] == "" or $_POST["search"] == null){
+    echo '<script type="text/javascript">redirect();</script>';
+  }
+
   //*********** AINDA TA COM ERRO QUANDO FAZ A BUSCA DE UMA CAIXA VAZIA
 
   // Coleta os dados via POST
