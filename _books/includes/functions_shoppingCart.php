@@ -11,6 +11,18 @@
 
   }
 
+  // Contar itens no carrinho
+  function count_cart(){
+    
+    $cookie_name = 'ShoppingCart';
+
+    // Da um unserialize no array de compras
+    $cart = unserialize($_COOKIE[$cookie_name]);
+
+    return count($cart);
+
+  }
+
   // Adiciona livros ao vetor do cookie
   function add_book_cart($bookISBN, $bookQuant){
 
@@ -176,8 +188,6 @@
 
     remove_book_cart($ISBN);
     add_book_cart($ISBN, $bookQuant);
-
-
 
   }
 

@@ -46,8 +46,6 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
   // coleta ISBNs dos livros que daquela Categoria
   $rowC = mysqli_fetch_assoc($selectC);
 
-
-
 }
 
 ?>
@@ -104,7 +102,7 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
                     <div>";
 
                 } else {
-                  echo "No results.";
+                  echo "No results to Authors.";
                 }
 
             }while($rowA = mysqli_fetch_assoc($selectA));
@@ -128,10 +126,16 @@ if(isset($_GET['catID']) && $_GET['catID'] !== ''){
                       </div>
                     <div>";
 
+                } else {
+                  echo "No results to Titles.";
                 }
             }while($rowT = mysqli_fetch_assoc($selectT));
 
-          } else {
+          }
+
+//**********************************************************************************************************************************************************************************************
+
+          else {
 
               if(isset($_GET['catID']) && $_GET['catID'] !== ''){
                 do{

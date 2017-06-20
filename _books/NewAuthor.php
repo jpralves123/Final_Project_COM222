@@ -12,8 +12,8 @@ if($nameF == "" || $nameF == null || $nameL == "" || $nameL == null){
 }else{
 
         // Insere o autor na tabela
-	$nameF = $connect->real_escape_string($nameF); // Caracteres especiais transformados para strings
-	$nameL = $connect->real_escape_string($nameL); // Caracteres especiais transformados para strings
+      	$nameF = $connect->real_escape_string($nameF); // Caracteres especiais transformados para strings
+      	$nameL = $connect->real_escape_string($nameL); // Caracteres especiais transformados para strings
         $queryA = "INSERT INTO bookauthors (AuthorID, nameF, nameL) VALUES ('','$nameF', '$nameL')";
         $insert = mysqli_query($connect, $queryA);
 

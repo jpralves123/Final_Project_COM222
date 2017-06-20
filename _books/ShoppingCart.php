@@ -128,7 +128,7 @@
                       <?php echo calculate_total_value(); ?>
                     </strong>
                   </td>
-    							<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+    							<td><a href="checkout01.php" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
     						</tr>
     					</tfoot>
 
