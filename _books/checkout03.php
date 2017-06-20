@@ -108,6 +108,24 @@
             </strong>
           </td>
         </tr>
+        <tr>
+          <td colspan="1" class="hidden-xs"></td>
+          <td colspan="2" class="hidden-xs"></td>
+          <td class="hidden-xs text-center">
+            <strong>
+              <?php echo "FRETE: $ ".frete().".00"?>
+            </strong>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" class="hidden-xs"></td>
+          <td colspan="2" class="hidden-xs"></td>
+          <td class="hidden-xs text-center">
+            <strong>
+              <?php echo "Total Final: $ ".floatval(frete() + calculate_total_value()); ?>
+            </strong>
+          </td>
+        </tr>
 
         <br><br>
 

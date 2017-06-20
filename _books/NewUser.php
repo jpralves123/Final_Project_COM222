@@ -1,7 +1,13 @@
 ﻿<?php
 
 $login = $_POST['login'];
+$fname = $_POST['fname'];
 $senha = $_POST['password'];
+$lname = $_POST['lname'];
+$street = $_POST['street'];
+$city = $_POST['city'];
+$state = $_POST['state'];
+$zip = $_POST['zip'];
 $email_address = $_POST['email_address'];
 
 // Conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
@@ -30,7 +36,7 @@ if($array > 0 ){
         die();
 
       }else{
-        $query = "INSERT INTO user (login,senha, nome, admin) VALUES ('$login','$senha', '$email_address', '0')";
+        $query = "INSERT INTO user (fname, lname, street, city, state, zip, login, senha, nome, admin) VALUES ('$fname', '$lname', '$street', '$city', '$state', '$zip','$login','$senha', '$email_address', '0')";
 
         $insert = mysqli_query($connect, $query);
 

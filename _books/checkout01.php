@@ -1,7 +1,11 @@
 <!DOCTYPE hml>
 <?php
 include 'includes/functions_shoppingCart.php';
- ?>
+
+// Atualiza lista de compras da página
+$cart = list_books_cart_array();
+
+?>
 
 <html lang="en">
   <!-- ************************************************ -->

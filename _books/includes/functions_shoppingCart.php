@@ -11,15 +11,46 @@
 
   }
 
+  function frete(){
+
+    $books = count_cart();
+    $frete = 0;
+
+    if($books > 0){
+
+      $frete = 10 + ($books-1)*5;
+
+    }
+
+    return $frete;
+
+  }
+
   // Contar itens no carrinho
   function count_cart(){
-    
+
     $cookie_name = 'ShoppingCart';
+    $quant = 0;
 
-    // Da um unserialize no array de compras
-    $cart = unserialize($_COOKIE[$cookie_name]);
+    if(isset($_COOKIE[$cookie_name])) {
 
-    return count($cart);
+      // Da um unserialize no array de compras
+      $cart = unserialize($_COOKIE[$cookie_name]);
+
+      // Para cada produto
+      foreach($cart as $book){
+
+        // Da unserialize
+        $book = unserialize($book);
+
+        // soma as quantidades
+        $quant = $quant + $book[1];
+
+      }
+
+    }
+
+    return $quant;
 
   }
 
