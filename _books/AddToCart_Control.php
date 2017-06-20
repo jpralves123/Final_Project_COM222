@@ -41,13 +41,26 @@
   // Remoção de elemento do carrinho
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $isbn = $_POST['isbn'];
+      if(isset($_POST['isbnD'])){
+        $isbnD = $_POST['isbnD'];
 
-    remove_book_cart($isbn);
+        remove_book_cart($isbnD);
 
-    // Atualiza a página
-    echo"<script language='javascript' type='text/javascript'>window.location.href='ShoppingCart.php';</script>";
+        // Atualiza a página
+        echo"<script language='javascript' type='text/javascript'>window.location.href='ShoppingCart.php';</script>";
+      }
 
+      if(isset($_POST['isbnQ'])){
+
+        $isbnQ = $_POST['isbnQ'];
+        $quantity = $_POST['quantityHidden'];
+
+        quantity_book_cart($isbnQ, $quantity);
+
+        // Atualiza a página
+        echo"<script language='javascript' type='text/javascript'>window.location.href='ShoppingCart.php';</script>";
+        
+      }
   }
 
  ?>

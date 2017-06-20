@@ -167,10 +167,17 @@
           setcookie($cookie_name, serialize($cart), time() + (86400 * 30), "/"); // 86400 = 1 day
 
           break;
-
         }
-
     }
+  }
+
+  // Aumenta a quantidade de itens do carrinho
+  function quantity_book_cart($ISBN, $bookQuant){
+
+    remove_book_cart($ISBN);
+    add_book_cart($ISBN, $bookQuant);
+
+
 
   }
 

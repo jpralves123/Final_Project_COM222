@@ -78,7 +78,7 @@
                         <?php echo $bookPrice; ?>
                       </td>
         							<td data-th="Quantity">
-        								<?php echo "<input type=\"number\" class=\"form-control text-center\" value=".$bookQuant.">"; ?>
+        								<?php echo "<input type=\"number\" class=\"form-control text-center\" value=".$bookQuant." name=\"quantity\" id=\"quantity\">"; ?>
         							</td>
         							<td data-th="Subtotal" class="text-center">
                         <?php echo $bookPrice*$bookQuant ?>
@@ -86,9 +86,22 @@
         							<td class="actions" data-th="">
 
                         <form method="POST" action="AddToCart_Control.php">
-          								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-          								<button class="btn btn-danger btn-sm" onclick=""><i class="fa fa-trash-o"></i></button>
-                          <?php echo "<input type=\"hidden\" name=\"isbn\" id=\"isbn\" class=\"form-control text-center\" value=".$bookISBN.">"; ?>
+                          <button class="btn btn-info btn-sm">   <i class="fa fa-refresh"></i>   </button>
+                          <?php echo "<input type=\"hidden\" name=\"quantityHidden\" id=\"quantity\" class=\"form-control text-center\" value=".$bookQuant.">"; ?>
+                          <?php echo "<input type=\"hidden\" name=\"isbnQ\" id=\"isbnQ\" class=\"form-control text-center\" value=".$bookISBN.">"; ?>
+                        </form>
+
+                        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+                        <script>
+                        	$("input[name='quantity']").change(function(){
+                        		var quantity = $(this).val();
+                        		$("input[name='quantityHidden']").val(quantity);
+                        	});
+                        </script>
+
+                        <form method="POST" action="AddToCart_Control.php">
+          								<button class="btn btn-danger btn-sm" type="submit">   <i class="fa fa-trash-o"></i>   </button>
+                          <?php echo "<input type=\"hidden\" name=\"isbnD\" id=\"isbnD\" class=\"form-control text-center\" value=".$bookISBN.">"; ?>
                         </form>
 
         							</td>
