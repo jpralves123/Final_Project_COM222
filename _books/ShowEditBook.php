@@ -17,9 +17,8 @@
 		  $total = mysqli_num_rows($select);
 	}
 
-
 	// Preenche a caixa de categoria e de autores com as opções
-	
+
 	// cria a instrução SQL que vai selecionar os dados
 	$query_selectA = "SELECT * FROM bookcategories WHERE CategoryName NOT LIKE '".$row['CategoryName']."'";
 	$query_selectB = "SELECT * FROM bookauthors WHERE nameF NOT LIKE '".$row['nameF']."' AND nameL NOT LIKE '".$row['nameL']."'";
@@ -91,16 +90,16 @@
                 }while($rowA = mysqli_fetch_assoc($selectA));?>
           </select>
           </select>
-	  <?php
+	  			<?php
           // fim do if
           }
           ?>
         </div>
-        <div class="form-group col-md-2">
-	  <label for="Management">Management</label><br>
+        <div class="form-group col-md-3">
+	  		  <label for="Management">Management</label><br>
           <a href="ManageCategory_Author.php" class="btn btn-primary">Manage Authors and Categories</a>
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
           <label for="Add an price">Price</label>
           <input type="number" class="form-control" id="price"  name="price" value="<?php echo $row['price'];?>"/>
         </div>

@@ -86,11 +86,11 @@ if($total > 0) {
           }
           ?>
         </div>
-        <div class="form-group col-md-2">
-	  <label for="Management">Management</label><br>
+        <div class="form-group col-md-3">
+	        <label for="Management">Management</label><br>
           <a href="ManageCategory_Author.php" class="btn btn-primary">Manage Authors and Categories</a>
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
           <label for="Add an price">Price</label>
           <input type="number" class="form-control" id="price"  name="price" placeholder="Book Price"/>
         </div>
