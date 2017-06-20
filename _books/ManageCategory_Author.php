@@ -50,37 +50,40 @@ if($totalCat > 0 && $totalAut > 0) {
 
     <form class="register-form" method="POST" action="NewAuthor.php">
 
-      <h4 >Add Authors</h4>
       <div class="row">
-        <div class="form-group col-md-4">
-          <label for="Add an first name">First Name</label>
+        <div class="form-group col-md-12">
+          <label for="Add an first name">Fill the name text boxes to create a new Author:</label>
+	</div>
+	<div class="form-group col-md-5">
           <input type="text" class="form-control" id="first_name" name="first_name"  placeholder="First Name"/>
-        </div>
-        <div class="form-group col-md-4">
-          <label for="Add an last name">Last Name</label>
+	</div>
+	<div class="form-group col-md-5">
           <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name"/>
         </div>
-	<div class="form-group col-md-4">
+	<div class="form-group col-md-2">
           <input class="btn btn-primary" type="submit" value="Create New Author" id="save" name="save">
+	</div>
 	</div>
     </form>
     <form class="register-form" method="POST" action="RemoveAuthor.php">
-    <div class="form-group col-md-8">
+      <div class="row">
+    	<div class="form-group col-md-12">
           <label for="Select an Author">Select an Author for removal:</label>
+	</div>
+	<div class="form-group col-md-10">
           <select type="text" class="form-control" id="author"  name="author">
             <?php
                 do{
-                  echo '<option value=\"'. $rowB['AuthorID'] .'\">' . $rowB['nameF'] ." ". $rowB['nameL'] .'</option>';
+                  echo '<option value='. $rowB['AuthorID'] .'>' . $rowB['nameF'] ." ". $rowB['nameL'] .'</option>';
                 }while($rowB = mysqli_fetch_assoc($selectB));
             ?>
           </select>
         </div>
-	<div class="form-group col-md-4">
+	<div class="form-group col-md-2">
           <input class="btn btn-primary" type="submit" value="Delete Author" id="save" name="save">
 	</div>
-    </form>
     </div>
-
+    </form>
     <div class="row">
       </div>
 
@@ -96,37 +99,42 @@ if($totalCat > 0 && $totalAut > 0) {
 
     <form class="register-form" method="POST" action="NewCategory.php">
 
-    <h4 >Add Categories</h4>
       <div class="row">
-        <div class="form-group col-md-8">
+        <div class="form-group col-md-12">
           <label for="Add an category name">Category Name</label>
+	</div>
+	<div class="form-group col-md-10">
           <input type="text" class="form-control" id="category_name" name="category_name"  placeholder="Category Name"/>
         </div>
-	<div class="form-group col-md-4">
+	<div class="form-group col-md-2">
           <input class="btn btn-primary" type="submit" value="Create new Category" id="save" name="save">
 	</div>
+      </div>
     </form>
     <form class="register-form" method="POST" action="RemoveCategory.php">
-    <div class="form-group col-md-8">
+      <div class="row">
+    	<div class="form-group col-md-12">
           <label for="Select an category">Select an Category for removal:</label>
-          <select type="text" class="form-control" id="category"  name="category">
+	</div>
+	<div class="form-group col-md-10">
+          <select type="text" class="form-control" id="category_name"  name="category_name">
             <?php
 		do{
-                  echo '<option value=\"'. $rowA['CategoryID'] .'\">' . $rowA['CategoryName'] . '</option>';
-                }while($rowA = mysqli_fetch_assoc($selectA));
-           	?>
+                  echo '<option value=' .$rowA['CategoryID']. '>' .$rowA['CategoryName']. '</option>';
+                }while($rowA = mysqli_fetch_assoc($selectA));?>
           </select>
 	  <?php
           // fim do if
           }
           ?>
         </div>
-	<div class="form-group col-md-4">
+	<div class="form-group col-md-2">
           <input class="btn btn-primary" type="submit" value="Delete Category" id="save" name="save">
 	</div>
-     </form>
-  </div>
-
+   </div>
+   </form>
+	
+  <br>
   <a href="BookStoreManagement.php" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back to Book Store Management</a>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>

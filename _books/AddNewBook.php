@@ -66,7 +66,7 @@ if($total > 0) {
             <option></option>
             <?php
                 do{
-                  echo '<option value=\"'. $rowA['AuthorID'] .'\">' . $rowA['nameF'] ." ". $rowA['nameL'] .'</option>';
+                  echo '<option value='. $rowA['AuthorID'] .'>' . $rowA['nameF'] ." ". $rowA['nameL'] .'</option>';
                 }while($rowA = mysqli_fetch_assoc($selectA));
             ?>
           </select>
@@ -77,7 +77,7 @@ if($total > 0) {
             <option></option>
             <?php
             		do{
-                  echo '<option value=\"'. $row['CategoryID'] .'\">' . $row['CategoryName'] . '</option>';
+                  echo '<option value='. $row['CategoryID'] .'>' . $row['CategoryName'] . '</option>';
                 }while($row = mysqli_fetch_assoc($select));
            	?>
           </select>
@@ -87,7 +87,7 @@ if($total > 0) {
           ?>
         </div>
         <div class="form-group col-md-2">
-	        <label for="Choose an category">Management</label><br>
+	  <label for="Management">Management</label><br>
           <a href="ManageCategory_Author.php" class="btn btn-primary">Manage Authors and Categories</a>
         </div>
         <div class="form-group col-md-3">

@@ -59,69 +59,65 @@
 
       <div class="row">
         <div class="form-group col-md-4">
-          <label for="exampleInputEmail1">ISBN</label>
-          <input type="text" class="form-control" id="isbn" name="isbn"  value="<?php echo $row['ISBN'];?>"/>
+          <label for="Add an ISBN">ISBN</label>
+          <input type="text" class="form-control" id="isbn" name="isbn" value="<?php echo $row['ISBN'];?>" readonly/>
         </div>
         <div class="form-group col-md-8">
-          <label for="exampleInputEmail1">Title</label>
+          <label for="Add an Title">Title</label>
           <input type="text" class="form-control" id="title" name="title" value="<?php echo $row['title'];?>"/>
         </div>
         <div class="form-group col-md-12">
-          <label for="exampleInputEmail1">Description</label>
+          <label for="Add an Description">Description</label>
           <input type="text" class="form-control" id="description"  name="description" value="<?php echo strip_tags($row['description']);?>"/>
         </div>
         <div class="form-group col-md-4">
-          <label for="exampleInputEmail1">Author</label>
+          <label for="Choose an Author">Author</label>
           <select type="text" class="form-control" id="author"  name="author">
-            <option selected="select"><?php echo $row['nameF']; echo " "; echo $row['nameL'];?></option>
+            <?php echo '<option value='. $row['AuthorID'] .' selected="select">';?><?php echo $row['nameF']; echo " "; echo $row['nameL'];?></option>
             <?php
                 do{
-                  echo '<option value=\"'. $rowB['AuthorID'] .'\">' . $rowB['nameF'] ." ". $rowB['nameL'] .'</option>';
+                  echo '<option value='. $rowB['AuthorID'] .'>' . $rowB['nameF'] ." ". $rowB['nameL'] .'</option>';
                 }while($rowB = mysqli_fetch_assoc($selectB));
             ?>
           </select>
         </div>
-        <div class="form-group col-md-1">
-          <label for="exampleInputEmail1">New</label><br>
-          <a href="#" class="btn btn-default"><em class="fa fa-plus"></em></a>
-        </div>
         <div class="form-group col-md-3">
-          <label for="exampleInputEmail1">Category</label>
-          <select type="text" class="form-control" id="category"  name="category">
-            <option selected="selected"><?php echo $row['CategoryName'];?></option>
+          <label for="Choose an category">Category</label>
+          <select type="text" class="form-control" id="category_name"  name="category_name">
+            <?php echo '<option value='. $row['CategoryID'] .' selected="select">';?><?php echo $row['CategoryName'];?></option>
             <?php
 		do{
-                  echo '<option value=\"'. $rowA['CategoryID'] .'\">' . $rowA['CategoryName'] . '</option>';
-                }while($rowA = mysqli_fetch_assoc($selectA));
-           	?>
+                  echo '<option value=' .$rowA['CategoryID']. '>' .$rowA['CategoryName']. '</option>';
+                }while($rowA = mysqli_fetch_assoc($selectA));?>
+          </select>
           </select>
 	  <?php
           // fim do if
           }
           ?>
         </div>
-        <div class="form-group col-md-1">
-          <label for="exampleInputEmail1">New</label><br>
-          <a href="#" class="btn btn-default"><em class="fa fa-plus"></em></a>
+        <div class="form-group col-md-2">
+	  <label for="Management">Management</label><br>
+          <a href="ManageCategory_Author.php" class="btn btn-primary">Manage Authors and Categories</a>
         </div>
         <div class="form-group col-md-3">
-          <label for="exampleInputEmail1">Price</label>
+          <label for="Add an price">Price</label>
           <input type="number" class="form-control" id="price"  name="price" value="<?php echo $row['price'];?>"/>
         </div>
         <div class="form-group col-md-5">
-          <label for="exampleInputEmail1">Publisher</label>
+          <label for="Add an publisher">Publisher</label>
           <input type="text" class="form-control" id="publisher" name="publisher" value="<?php echo $row['publisher'];?>"/>
         </div>
         <div class="form-group col-md-3">
-          <label for="exampleInputEmail1">Publication Date</label>
+          <label for="Add the publication date">Publication Date</label>
           <input type="text" class="form-control" id="pub_date" name="pub_date" value="<?php echo $row['pubdate'];?>"/>
         </div>
         <div class="form-group col-md-2">
-          <label for="exampleInputEmail1">Edition</label>
+          <label for="Add the book edition">Edition</label>
           <input type="number" class="form-control" id="edition" name="edition" value="<?php echo $row['edition'];?>"/>
         </div>
         <div class="form-group col-md-2">
-          <label for="exampleInputEmail1">Pages</label>
+          <label for="Add the quantity of pages">Pages</label>
           <input type="number" class="form-control" id="pages" name="pages" value="<?php echo $row['pages'];?>"/>
         </div>
       </div>
