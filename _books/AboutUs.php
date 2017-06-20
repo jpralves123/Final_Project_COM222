@@ -35,9 +35,11 @@
 
       <br>
 
-      <p>
+      <div class="row text-center">
+      <h4>
         <kbd>This website was developed by João Pedro Rufino Alves and Mateus Romera Villar at the Federal University of Itajubá - UNIFEI.</kbd>
-      </p>
+      </h4>
+      </div>
 
 
     </div>

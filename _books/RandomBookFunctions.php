@@ -30,7 +30,7 @@
 			$stringCut = substr($string, 0, 500);
 
 			// make sure it ends in a word so assassinate doesn't become ass...
- 			$string = substr($stringCut, 0, strrpos($stringCut, ' ')); 
+ 			$string = substr($stringCut, 0, strrpos($stringCut, ' '));
 
 		}
 
@@ -57,8 +57,7 @@
 				<img src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rdmBook['ISBN'].".01.THUMBZZZ.jpg\">
 			</div>
 			<div class=\"caption text-justify\">
-				<p>".trimString($rdmBook['description'])."</p>
-				<br><a href=\"ProductPage.php?ISBN=".$rdmBook['ISBN']."\">» Read More</a>
+				<p>".trimString($rdmBook['description'])."<a href=\"ProductPage.php?ISBN=".$rdmBook['ISBN']."\">»Read More</a></p>
 			</div>
 			</div>
 		</div>";
