@@ -48,21 +48,13 @@ $total = mysqli_num_rows($select);
               <div class="panel-heading">
                 <div class="row">
 
-		  <form class="col col-xs-6 navbar-form navbar-left" method="POST" action="SearchBrowse.php">
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="search" name="search" placeholder="Search with ISBN">
-                    </div>
-                 
-		  <button type="button" class="btn btn-primary" id="searchBt" name="searchBt">
-          	    <span class="glyphicon glyphicon-search"></span> Search 
-        	  </button>
-
-                  </form>
-
+                  <div class="col col-xs-2 navbar-form navbar-left">
+                    <label>Books list</label>
+                  </div>
 		  <div class="col col-xs-2 navbar-form navbar-right">
           	    <a href="ManageCategory_Author.php" class="btn btn-primary">Manage Authors and Categories</a>
         	  </div>
-                  <div class="col col-xs-10 navbar-form navbar-right">
+                  <div class="col col-xs-8 navbar-form navbar-right">
                     <a href="AddNewBook.php" class="btn btn-primary btn-create">New Book</a>
                   </div>
 
