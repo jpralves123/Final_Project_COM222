@@ -1,9 +1,3 @@
-<?php
-  include 'includes/functions_shoppingCart.php';
-  include 'includes/functions_db.php';
-
-?>
-
 <!DOCTYPE hml>
 <html lang="en">
 
@@ -19,6 +13,18 @@
 
   </head>
 
+  <?php
+    include 'includes/functions_shoppingCart.php';
+    include 'includes/functions_db.php';
+
+    // relaciona dados do usuário
+    $login = $_SESSION['login'];
+
+    // busca dados do usuário
+    $user = get_user_data($login);
+
+  ?>
+
   <!-- ************************************************ -->
 
   <body>
@@ -27,7 +33,7 @@
       <h1>Checkout</h1>
 
       <table id="cart" class="table table-hover table-condensed">
-        <h3>Order Summary</h3>
+        <h3><b>Order Summary</b></h3>
       <thead>
         <tr>
           <th style="width:58%">Product</th>
@@ -111,14 +117,13 @@
               <div class="col-sm-10">
                 <h4 class="nomargin">
                     <?php
-                      echo "<h3>Delivery Address</h3>";
-                      echo "<h4>Name: </h4>";
-                      echo "<h4>e-mail:  </h4>";
-                      echo "<h4>Street: </h4>";
-                      echo "<h4>City: </h4>";
-                      echo "<h4>State: </h4>";
-                      echo "<h4>ZIP CODE: </h4>";
-
+                      echo "<h3><b>Delivery Address</b></h3>";
+                      echo "<h4><b>Name:</b> ".$user['fname']." ".$user['lname']."</h4>";
+                      echo "<h4><b>e-mail:</b>  ".$user['nome']."</h4>";
+                      echo "<h4><b>Street:</b> ".$user['street']."</h4>";
+                      echo "<h4><b>City:</b> ".$user['city']."</h4>";
+                      echo "<h4><b>State:</b> ".$user['state']."</h4>";
+                      echo "<h4><b>ZIP CODE:</b> ".$user['zip']."</h4>";
                     ?>
                 </h4>
               </div>
@@ -131,7 +136,7 @@
         <tr>
           <td><a href="index.php" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
           <td colspan="1" class="hidden-xs"></td>
-          <td><a href="OrderHistory.php" class="btn btn-success btn-block"><span class="glyphicon glyphicon-time"></span> Order History</a></td>
+          <td><a href="OrderHistory.php" class="btn btn-info btn-block"><span class="glyphicon glyphicon-time"></span> Order History</a></td>
           <td><a href="confirmationMail.php" class="btn btn-success btn-block">	Finalize <span class="glyphicon glyphicon-ok"></span></a></td>
         </tr>
       </tfoot>

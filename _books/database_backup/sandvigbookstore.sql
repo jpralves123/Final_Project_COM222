@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2017 at 09:09 PM
+-- Generation Time: Jun 20, 2017 at 07:22 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -104,6 +104,9 @@ INSERT INTO `bookauthorsbooks` (`ISBN`, `AuthorID`) VALUES
 ('0672328232', 22),
 ('0764574892', 23),
 ('0782142796', 24),
+('1000000000', 0),
+('1111111111111', 0),
+('123456789', 0),
 ('1590595521', 1),
 ('1590595726', 29),
 ('1590595726', 30);
@@ -156,6 +159,8 @@ INSERT INTO `bookcategoriesbooks` (`CategoryID`, `ISBN`) VALUES
 (1, '0596101104'),
 (1, '0672326728'),
 (1, '0782142796'),
+(1, '1000000000'),
+(1, '1111111111111'),
 (1, '1590595521'),
 (2, '0596005431'),
 (2, '0596101104'),
@@ -222,11 +227,28 @@ INSERT INTO `bookdescriptions` (`ISBN`, `title`, `description`, `price`, `publis
 --
 
 CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `fname` varchar(20) NOT NULL,
+  `lname` varchar(20) NOT NULL,
+  `street` varchar(25) NOT NULL,
+  `city` varchar(30) NOT NULL,
+  `state` varchar(2) NOT NULL,
+  `zip` varchar(9) NOT NULL,
   `login` varchar(15) NOT NULL,
   `senha` varchar(15) NOT NULL,
   `nome` varchar(30) NOT NULL,
   `admin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `fname`, `lname`, `street`, `city`, `state`, `zip`, `login`, `senha`, `nome`, `admin`) VALUES
+(3, 'Joao', 'Pedro', 'Rua Pref. Tigre Maia', 'Itajuba', 'MG', '37500-182', 'joao', '123456', 'jpralves_unifei@hotmail.com', 0),
+(4, '', '', '', '', '', '', 'jpralves', '0000', 'joao@gmail.com', 0),
+(5, '', '', '', '', '', '', 'admin', 'admin', 'Administrador', 1),
+(6, '', '', '', '', '', '', 'marcos', '1234', 'marcos@hotmail.com', 0);
 
 --
 -- Indexes for dumped tables
@@ -264,6 +286,12 @@ ALTER TABLE `bookdescriptions`
   ADD KEY `strTitle` (`title`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -277,6 +305,11 @@ ALTER TABLE `bookauthors`
 --
 ALTER TABLE `bookcategories`
   MODIFY `CategoryID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

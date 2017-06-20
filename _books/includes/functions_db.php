@@ -78,7 +78,7 @@
   }
 
 	// Retorna o título do livro
-	function get_user_data($ISBN){
+	function get_user_data($login){
 
 		// conecta ao banco de dados
     $connect = mysqli_connect('localhost','root','');
@@ -87,8 +87,14 @@
     $db = mysqli_select_db($connect, 'sandvigbookstore');
 
 		// cria a instrução SQL que vai selecionar os dados
-		$query_select = "SELECT * FROM users WHERE ISBN LIKE '%".$ISBN."%'";
+		$query_select = "SELECT * FROM user WHERE login LIKE '%".$login."%'";
 
+		$select = mysqli_query($connect, $query_select);
+
+		// transforma os dados em um array
+    $row = mysqli_fetch_assoc($select);
+
+		return $row;
 
 	}
 
