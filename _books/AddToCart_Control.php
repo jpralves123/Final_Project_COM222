@@ -38,4 +38,16 @@
 
   }
 
+  // Remoção de elemento do carrinho
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $isbn = $_POST['isbn'];
+
+    remove_book_cart($isbn);
+
+    // Atualiza a página
+    echo"<script language='javascript' type='text/javascript'>window.location.href='ShoppingCart.php';</script>";
+
+  }
+
  ?>

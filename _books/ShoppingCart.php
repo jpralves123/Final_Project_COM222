@@ -84,8 +84,13 @@
                         <?php echo $bookPrice*$bookQuant ?>
                       </td>
         							<td class="actions" data-th="">
-        								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-        								<button class="btn btn-danger btn-sm" onclick=""><i class="fa fa-trash-o"></i></button>
+
+                        <form method="POST" action="AddToCart_Control.php">
+          								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+          								<button class="btn btn-danger btn-sm" onclick=""><i class="fa fa-trash-o"></i></button>
+                          <?php echo "<input type=\"hidden\" name=\"isbn\" id=\"isbn\" class=\"form-control text-center\" value=".$bookISBN.">"; ?>
+                        </form>
+
         							</td>
         						</tr>
 

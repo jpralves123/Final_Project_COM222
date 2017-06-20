@@ -154,10 +154,24 @@
 
         $book = unserialize($book);
 
-        // remove livro
-        unset($book);
+        // Verifica se o ISBN é o mesmo
+        if($book[0] == $ISBN){
+
+          $book = serialize($book);
+
+          $key = array_search($book, $cart);
+
+          unset($cart[$key]);
+
+          // da um serialize no vetor de compras e cria um novo cookie com o vetor atualizado
+          setcookie($cookie_name, serialize($cart), time() + (86400 * 30), "/"); // 86400 = 1 day
+
+          break;
+
+        }
 
     }
+
   }
 
 ?>
