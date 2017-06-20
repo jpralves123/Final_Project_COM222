@@ -42,7 +42,7 @@
            <h4><b>ZIP CODE:</b> ".$user['zip']."</h4>";
 
   // envia email
-  mail($email, $subject ,$bodyM, 'From: contato@webbooks.com');
+  mail($email, $subject ,$bodyM, 'From: jpralves123@gmail.com');
 
   // Limpa cookies
   delete_cookie_cart();

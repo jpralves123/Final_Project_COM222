@@ -45,7 +45,6 @@ $cart = list_books_cart_array();
               <input type="text" class="form-control" placeholder="email" name="email" id="email"/>
               <br>
               <input class="btn btn-primary" type="submit" value="Login" id="enter" name="enter">
-
             </form>
 
             <script>
