@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2017 at 07:22 AM
+-- Generation Time: Jun 20, 2017 at 04:54 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -45,6 +45,7 @@ INSERT INTO `bookauthors` (`AuthorID`, `nameF`, `nameL`) VALUES
 (6, 'Ben', 'Forta'),
 (8, 'Jakob', 'Nielsen'),
 (9, 'Hoa', 'Loranger'),
+(10, 'Unknown', 'Author'),
 (11, 'Alan', 'Beaulieu'),
 (12, 'Jesse', 'Liberty'),
 (13, 'Dan', 'Hurwitz'),
@@ -134,7 +135,8 @@ INSERT INTO `bookcategories` (`CategoryID`, `CategoryName`) VALUES
 (5, 'ASP.NET'),
 (6, 'Regular Expressions'),
 (7, 'Web Services'),
-(8, 'Morse Code');
+(8, 'Morse Code'),
+(10, 'Unknown Category');
 
 -- --------------------------------------------------------
 
@@ -153,6 +155,7 @@ CREATE TABLE `bookcategoriesbooks` (
 
 INSERT INTO `bookcategoriesbooks` (`CategoryID`, `ISBN`) VALUES
 (1, '0131428985'),
+(1, '0201433362'),
 (1, '0596005431'),
 (1, '0596005601'),
 (1, '0596006810'),
@@ -168,7 +171,6 @@ INSERT INTO `bookcategoriesbooks` (`CategoryID`, `ISBN`) VALUES
 (2, '1590595521'),
 (3, '0321344758'),
 (3, '0321350316'),
-(4, '0201433362'),
 (4, '0596007272'),
 (4, '0672325675'),
 (5, '059600916X'),
@@ -202,7 +204,7 @@ CREATE TABLE `bookdescriptions` (
 
 INSERT INTO `bookdescriptions` (`ISBN`, `title`, `description`, `price`, `publisher`, `pubdate`, `edition`, `pages`) VALUES
 ('0131428985', 'Service-Oriented Architecture : A Field Guide to Integrating XML and Web Services', '<p>The emergence of key second-generation Web  services standards has positioned service-oriented architecture (SOA)  as the foremost platform for contemporary business automation  solutions. The integration of SOA principles and technology is  empowering organizations to build applications with unprecedented  levels of flexibility, agility, and sophistication (while also allowing  them to leverage existing legacy environments).</p><p>This  guide will help you dramatically reduce the risk, complexity, and cost  of integrating the many new concepts and technologies introduced by the  SOA platform. It brings together the first comprehensive collection of  field-proven strategies, guidelines, and best practices for making the  transition toward the service-oriented enterprise.</p><p>Writing  for architects, analysts, managers, and developers, Thomas Erl offers  expert advice for making strategic decisions about both immediate and  long-term integration issues. Erl addresses a broad spectrum of  integration challenges, covering technical and design issues, as well  as strategic planning.</p><ul>  <li>Covers crucial second-generation  (WS-*) Web services standards: BPEL4WS, WS-Security, S-Coordination,  WS-Transaction, WS-Policy, WS-ReliableMessaging, and WS-Attachments </li>  <li>Includes  hundreds of individual integration strategies and more than 60 best  practices for both XML and Web services technologies </li>  <li>Includes a complete tutorial on service-oriented design principles for business and technical modeling </li>  <li>Explores  design issues related to a wide variety of service-oriented integration  architectures that integrate XML and Web services into legacy and EAI  environments </li>  <li>Provides a clear roadmap for planning a long-term migration toward a standardized service-oriented enterprise</li></ul><p>Service-oriented  architecture is no longer an exclusive discipline practiced only by  expensive consultants. With this book\'s help, you can plan, architect,  and implement your own service-oriented environments-efficiently and  cost-effectively.</p>', '44.95', 'Prentice Hall', 'April 16, 2004', '1', '560'),
-('0201433362', 'SQL Queries for Mere Mortals: A Hands-On Guide to Data Manipulation in SQL ', '<p>To the people who are accomplished in its use, Structured Query  Language (SQL) is a highly capable, eminently flexible, even beautiful  way of describing the data that you want from a database, or the  changes that you want to make to a database. For the rest of us,  however, SQL is a first-class nuisance that we do our best to avoid by  relying on relatively user-friendly--but usually less powerful--tools. <em>SQL Queries for Mere Mortals</em> aims to bring SQL-phobes  closer to the first camp by tutoring them carefully in what SQL can do.<p> The authors recognize that SQL queries usually come about as a result  of questions from human beings, and so usefully spend a fair bit of  time showing how to convert, say, &quot;In what cities do our customers  live?&quot; into, &quot;Select city from the customers table&quot; and, finally,  &quot;SELECT city FROM customers&quot; in SQL. They call this the &quot;translation  and clean up&quot; process, and it\'s a fine approach. They don\'t press it  too far, however, and are equally adept at presenting straight  explanations of SQL syntax elements in prose. They spend a lot of  energy graphically diagramming aspects of SQL syntax in a format that  requires some up-front study. A particular reader might prefer text  capsules to this arrow-intensive format, but other learners might like  the graphical syntax diagrams. <em>--David Wall</em></p>', '54.99', 'Addison-Wesley Professional', 'August 21, 2000', '1', '528'),
+('0201433362', 'SQL Queries for Mere Mortals: A Hands-On Guide to Data Manipulation in SQL', 'To the people who are accomplished in its use, Structured Query  Language (SQL) is a highly capable, eminently flexible, even beautiful  way of describing the data that you want from a database, or the  changes that you want to make to a database. For the rest of us,  however, SQL is a first-class nuisance that we do our best to avoid by  relying on relatively user-friendly--but usually less powerful--tools. SQL Queries for Mere Mortals aims to bring SQL-phobes  closer to the first camp by tutoring them carefully in what SQL can do. The authors recognize that SQL queries usually come about as a result  of questions from human beings, and so usefully spend a fair bit of  time showing how to convert, say, ', '55.99', 'Addison-Wesley Professional', 'August 21, 2000', '1', '528'),
 ('0321344758', 'Don\'t Make Me Think', '<p>Usability design is one of the most important--yet often least attractive--tasks for a Web developer. In <em>Don\'t Make Me Think</em>, author Steve Krug lightens up the subject with good humor and excellent, to-the-point examples.</p><p> The title of the book is its chief personal design premise. All of the  tips, techniques, and examples presented revolve around users being  able to surf merrily through a well-designed site with minimal  cognitive strain. Readers will quickly come to agree with many of the  book\'s assumptions, such as &quot;We don\'t read pages--we scan them&quot; and &quot;We  don\'t figure out how things work--we muddle through.&quot; Coming to grips  with such hard facts sets the stage for Web design that then produces  topnotch sites.</p><p> Using an attractive mix of full-color screen  shots, cute cartoons and diagrams, and informative sidebars, the book  keeps your attention and drives home some crucial points. Much of the  content is devoted to proper use of conventions and content layout, and  the &quot;before and after&quot; examples are superb. Topics such as the wise use  of rollovers and usability testing are covered using a consistently  practical approach.</p><p> This is the type of book you can blow  through in a couple of evenings. But despite its conciseness, it will  give you an expert\'s ability to judge Web design. You\'ll never form a  first impression of a site in the same way again. <em>--Stephen W. Plain</em></p><p> <strong>Topics covered:</strong> </p><ul>  <li>User patterns </li>  <li>Designing for scanning </li>  <li>Wise use of copy </li>  <li>Navigation design </li>  <li>Home page layout </li>  <li>Usability testing</li></ul>', '35.00', 'New Riders Press', 'Aug. 18, 2005', '2', '224'),
 ('0321350316', 'Prioritizing Web Usability', '<p>In 2000, Jakob Nielsen, the world\'s leading expert on Web usability, published a book that changed how people think about the Web\'Designing Web Usability (New Riders). Many applauded. A few jeered. But everyone listened. The best-selling usability guru is back and has revisited his classic guide, joined forces with Web usability consultant Hoa Loranger, and created an updated companion book that covers the essential changes to the Web and usability today. Prioritizing Web Usability is the guide for anyone who wants to take their Web site(s) to next level and make usability a priority! Through the authors\' wisdom, experience, and hundreds of real-world user tests and contemporary Web site critiques, you\'ll learn about site design, user experience and usability testing, navigation and search capabilities, old guidelines and prioritizing usability issues, page design and layout, content design, and more!</p>', '50.00', 'New Riders Press', 'April 20, 2006', '1', '432'),
 ('0596005431', 'Web Database Applications with PHP & MySQL', '<p> There are many reasons for serving up dynamic content from a web  site: to offer an online shopping site, create customized information  pages for users, or just manage a large volume of content through a  database. Anyone with a modest knowledge of HTML and web site  management can learn to create dynamic content through the PHP  programming language and the MySQL database. This book gives you the  background and tools to do the job safely and reliably. <em>Web Database Applications with PHP and MySQL</em>,  Second Edition thoroughly reflects the needs of real-world  applications. It goes into detail on such practical issues as  validating input (do you know what a proper credit card number looks  like?), logging in users, and using templates to give your dynamic web  pages a standard look. But this book goes even further. It shows how  JavaScript and PHP can be used in tandem to make a user\'s experience  faster and more pleasant. It shows the correct way to handle errors in  user input so that a site looks professional. It introduces the vast  collection of powerful tools available in the PEAR repository and shows  how to use some of the most popular tools. Even while it serves as an  introduction to new programmers, the book does not omit critical tasks  that web sites require. For instance, every site that allows updates  must handle the possibility of multiple users accessing data at the  same time. This book explains how to solve the problem in detail with  locking. Through a sophisticated sample application--Hugh and Dave\'s  Wine Store--all the important techniques of dynamic content are  introduced. Good design is emphasized, such as dividing logic from  presentation. The book introduces PHP 5 and MySQL 4.1 features, while  providing techniques that can be used on older versions of the software  that are still in widespread use. This new edition has been redesigned  around the rich offerings of PEAR. Several of these, including the  Template package and the database-independent query API, are fully  integrated into examples and thoroughly described in the text. Topics  include:</p><ul>  <li>Installation and configuration of Apache, MySQL, and PHP on Unix&reg;, Windows&reg;, and Mac OS&reg; X systems</li>  <li>Introductions to PHP, SQL, and MySQL administration</li>  <li>Session management, including the use of a custom database for improved efficiency</li>  <li>User input validation, security, and authentication</li>  <li>The PEAR repository, plus details on the use of PEAR DB and Template classes</li>  <li>Production of PDF reports</li></ul>', '44.95', 'O\'Reilly Media', 'May 16, 2004', '2', '680'),
@@ -246,9 +248,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `fname`, `lname`, `street`, `city`, `state`, `zip`, `login`, `senha`, `nome`, `admin`) VALUES
 (3, 'Joao', 'Pedro', 'Rua Pref. Tigre Maia', 'Itajuba', 'MG', '37500-182', 'joao', '123456', 'jpralves_unifei@hotmail.com', 0),
-(4, '', '', '', '', '', '', 'jpralves', '0000', 'joao@gmail.com', 0),
-(5, '', '', '', '', '', '', 'admin', 'admin', 'Administrador', 1),
-(6, '', '', '', '', '', '', 'marcos', '1234', 'marcos@hotmail.com', 0);
+(5, 'Admin', 'Admin', 'Rua A', 'São Paulo', 'SP', '23456-987', 'admin', 'admin', 'Administrador', 1),
+(9, 'Marcos', 'Paulo', 'Rua Sarandi', 'Sao G. Sapucai', 'MG', '37490-000', 'mrufino', '12345678', 'marcos@gmail.com', 0),
+(10, 'Mateus', 'Villar', 'Avenida BPS', 'Itajuba', 'MG', '37500-189', 'mr-villar', 'mateus', 'mr-villar@hotmail.com', 0);
 
 --
 -- Indexes for dumped tables
@@ -299,17 +301,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bookauthors`
 --
 ALTER TABLE `bookauthors`
-  MODIFY `AuthorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `AuthorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `bookcategories`
 --
 ALTER TABLE `bookcategories`
-  MODIFY `CategoryID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `CategoryID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
