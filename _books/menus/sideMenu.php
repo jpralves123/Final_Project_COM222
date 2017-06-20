@@ -7,7 +7,7 @@
 include_once("./DatabaseConnection.php");
 
 // cria a instrução SQL que vai selecionar os dados
-$query_select = "SELECT * FROM bookcategories";
+$query_select = "SELECT * FROM bookcategories WHERE CategoryName NOT LIKE '%Unknown Category%'";
 
 // executa a query
 $select = mysqli_query($connect, $query_select);

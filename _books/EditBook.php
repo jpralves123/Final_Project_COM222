@@ -4,9 +4,7 @@ $isbn = $_POST['isbn'];
 $title = $_POST['title'];
 $description = $_POST['description'];
 $authorID = $_POST['author'];
-echo "<h3>".$authorID."</h3><br>";
 $categoryID = $_POST['category_name'];
-echo "<h3>".$categoryID."</h3>";
 $price = $_POST['price'];
 $publisher = $_POST['publisher'];
 $pubdate = $_POST['pub_date'];
@@ -16,7 +14,7 @@ $pages = $_POST['pages'];
 // Conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
 include_once('DatabaseConnection.php');
 
-$query_select = "SELECT ISBN FROM bookdescriptions WHERE ISBN = '".$isbn."'";
+$query_select = "SELECT ISBN FROM bookdescriptions WHERE ISBN NOT LIKE = '%".$isbn."%'";
 
 $select = mysqli_query($connect, $query_select);
 

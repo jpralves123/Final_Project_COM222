@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
   $email = $_POST["email"];
 
@@ -24,7 +24,7 @@
     if ($rows > 0){
 
       // direciona pra checkout02
-      echo"<script language='javascript' type='text/javascript'>alert('Hello, ".$login."!');window.location.href='checkout02.php';</script>";
+      echo"<script language='javascript' type='text/javascript'>alert('Hello, ".$login."!');window.location.href='ShowCheckout02.php?email=".$email."';</script>";
 
     }else{
       echo"<script language='javascript' type='text/javascript'>alert('Incorrect email');window.location.href='checkout01.php';</script>";
