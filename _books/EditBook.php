@@ -46,7 +46,7 @@ if($array > 0 )
       }else{
 
         // Insere o livro na tabela
-	//$description = $connect->real_escape_string($description); // Caracteres especiais transformados para strings
+	$description = $connect->real_escape_string($description); // Caracteres especiais transformados para strings
         $queryB = "UPDATE bookdescriptions SET title = '$title', description = '$description', price = '$price', publisher = '$publisher', pubdate = '$pubdate', edition = '$edition', pages = '$pages' WHERE bookdescriptions.ISBN = '$isbn'";
 	//$queryB = "SELECT * FROM bookcategories";
 	$update = mysqli_query($connect, $queryB);

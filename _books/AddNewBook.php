@@ -1,8 +1,8 @@
-<?php
+﻿<?php
 // Verifica se o usuário está logado
 //include_once("./validate.php");
 
-// Prrenche a caixa de categoria com as opções
+// Preenche a caixa de categoria com as opções
 
 // conecta ao banco de dados e seleciona a base de dados em que vamos trabalhar
 include_once("./DatabaseConnection.php");
@@ -49,19 +49,19 @@ if($total > 0) {
 
       <div class="row">
         <div class="form-group col-md-4">
-          <label for="exampleInputEmail1">ISBN</label>
+          <label for="Add an ISBN">ISBN</label>
           <input type="text" class="form-control" id="isbn" name="isbn"  placeholder="ISBN Number"/>
         </div>
         <div class="form-group col-md-8">
-          <label for="exampleInputEmail1">Title</label>
+          <label for="Add an Title">Title</label>
           <input type="text" class="form-control" id="title" name="title" placeholder="Title"/>
         </div>
         <div class="form-group col-md-12">
-          <label for="exampleInputEmail1">Description</label>
+          <label for="Add an Description">Description</label>
           <input type="text" class="form-control" id="description"  name="description" placeholder="Book Description"/>
         </div>
         <div class="form-group col-md-4">
-          <label for="exampleInputEmail1">Author</label>
+          <label for="Choose an Author">Author</label>
           <select type="text" class="form-control" id="author"  name="author" placeholder="Book Category">
             <option></option>
             <?php
@@ -71,12 +71,8 @@ if($total > 0) {
             ?>
           </select>
         </div>
-        <div class="form-group col-md-1">
-          <label for="exampleInputEmail1">New</label><br>
-          <a href="#" class="btn btn-default"><em class="fa fa-plus"></em></a>
-        </div>
         <div class="form-group col-md-3">
-          <label for="exampleInputEmail1">Category</label>
+          <label for="Choose an category">Category</label>
           <select type="text" class="form-control" id="category"  name="category" placeholder="Book Category">
             <option></option>
             <?php
@@ -90,28 +86,28 @@ if($total > 0) {
           }
           ?>
         </div>
-        <div class="form-group col-md-1">
-          <label for="exampleInputEmail1">New</label><br>
-          <a href="#" class="btn btn-default"><em class="fa fa-plus"></em></a>
+        <div class="form-group col-md-2">
+	  <label for="Choose an category">Management</label><br>
+          <a href="ManageCategory_Author.php" class="btn btn-primary">Manage Authors and Categories</a>
         </div>
         <div class="form-group col-md-3">
-          <label for="exampleInputEmail1">Price</label>
+          <label for="Add an price">Price</label>
           <input type="number" class="form-control" id="price"  name="price" placeholder="Book Price"/>
         </div>
         <div class="form-group col-md-5">
-          <label for="exampleInputEmail1">Publisher</label>
+          <label for="Add an publisher">Publisher</label>
           <input type="text" class="form-control" id="publisher" name="publisher"  placeholder="Book Publisher"/>
         </div>
         <div class="form-group col-md-3">
-          <label for="exampleInputEmail1">Publication Date</label>
-          <input type="date" class="form-control" id="pub_date" name="pub_date"/>
+          <label for="Add the publication date">Publication Date</label>
+          <input type="text" class="form-control" id="pub_date" name="pub_date"/>
         </div>
         <div class="form-group col-md-2">
-          <label for="exampleInputEmail1">Edition</label>
+          <label for="Add the book edition">Edition</label>
           <input type="number" class="form-control" id="edition" name="edition" value="1"/>
         </div>
         <div class="form-group col-md-2">
-          <label for="exampleInputEmail1">Pages</label>
+          <label for="Add the quantity of pages">Pages</label>
           <input type="number" class="form-control" id="pages" name="pages" value="1"/>
         </div>
       </div>
