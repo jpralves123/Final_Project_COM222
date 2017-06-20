@@ -57,7 +57,7 @@
 				<img src=\"https://baldochi.unifei.edu.br/COM222/trabfinal/imagens/".$rdmBook['ISBN'].".01.THUMBZZZ.jpg\">
 			</div>
 			<div class=\"caption text-justify\">
-				<p>".trimString($rdmBook['description'])."<a href=\"ProductPage.php?ISBN=".$rdmBook['ISBN']."\">»Read More</a></p>
+				<p>".trimString($rdmBook['description'])." <a href=\"ProductPage.php?ISBN=".$rdmBook['ISBN']."\">»Read More</a></p>
 			</div>
 			</div>
 		</div>";
